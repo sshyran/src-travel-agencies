@@ -7,6 +7,6 @@
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>About</h2>
     <p>
-        Put content here.
+        Project of Team II. Project's name is: Online Bus Ticket Reservation System.
     </p>
 </asp:Content>
