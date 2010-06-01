@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>About</h2>
+    <h2>About FPT-Aptech.C0708M.TeamII</h2>
     <p>
         Project of Team II. Project's name is: Online Bus Ticket Reservation System.
     </p>
