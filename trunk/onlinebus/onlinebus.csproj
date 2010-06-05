@@ -83,6 +83,7 @@
     <Content Include="obj\Debug\onlinebus.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\onlinebus.dll" />
     <Content Include="obj\Debug\onlinebus.pdb" />
+    <Content Include="Views\home_page\index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.4.1.js" />
