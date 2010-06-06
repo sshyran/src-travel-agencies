@@ -15,7 +15,12 @@
       antiAlias: true
   }
   curvyCorners(stBody, "#body");
-  curvyCorners(stBody, "#MainResult");  
-  curvyCorners(stBody, "#TopHeaderResult");
-  curvyCorners(stBody, "#BodyResult");
+  var idMain = document.getElementById("MainResult");
+  var idHead = document.getElementById("TopHeaderResult");
+  var idBody = document.getElementById("BodyResult");
+  if(idMain != null || idHead != null || idBody != null){
+      curvyCorners(stBody, "#TopHeaderResult");
+      curvyCorners(stBody, "#BodyResult");
+      curvyCorners(stBody, "#MainResult");
+  } 
 }
