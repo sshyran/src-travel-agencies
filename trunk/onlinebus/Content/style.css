@@ -2,14 +2,31 @@
 
 body{
 	padding:11px 0 14px 0;
-	margin:0;
-	background-color:#EFEFDF;
-	color:#000;
+	margin:3px;
+	background-color:#EFEFDF;	
+    font-size: .75em;
+    font-family: Verdana, Helvetica, Sans-Serif;    
+    padding: 3px;
+    color: #696969;
 }
 div, h1, h2, p, form, label, input, textarea, img, span{
 	margin:0; padding:0;
 }
-
+.comboNC {
+    font:Arial,Helvetica,sans-serif;
+    text-transform:capitalize;
+}
+.textbox {
+    border:1px solid #999999;
+    font:Arial,Helvetica,sans-serif;
+    height:15px;
+    text-transform:capitalize;
+}
+.button
+{
+    margin: 5px auto 5px auto;
+    float: right;
+}
 ul{
 	margin:0; 
 	padding:0; 
@@ -21,9 +38,14 @@ ul{
 	font-size:0; 
 	line-height:0;
 }
-
+#banner
+{
+   width: 981px;
+   margin: 0px auto 0px auto; 
+   /*border: solid 2px #347c95;*/
+}
 #header{
-	background:url(images/banner3.jpg) 0 0 no-repeat;
+	background:url(images/banner3.jpg) 0 0 no-repeat;	
 	width:981px;
 	height:120px;
 	position:relative;
@@ -66,23 +88,31 @@ ul{
 }
 #header p.topText{
 	font:normal 22px/24px Arial, Helvetica, sans-serif;
-	color:#E8E8E8;
+	color:#367d99;
 	background-color:inherit;
 	position:absolute;
 	left:245px;
-	top:50px;
+	top:30px;
 	width:588px;
+	font-size: 55px;
 }
 #header p.topText span
 {
-	color: #FF9C3A;
-	font-size: 25px;
+	color: #ff1111;
+	font-size: 55px;
 }
-#header p.topText span.smallTxt{
+#header #smallTxt{
 	font:normal 12px/18px Arial, Helvetica, sans-serif;
 	color:#FF9C3A;
 	background-color:inherit;
+	float: left;
+	margin-top: 25px;
 	padding:0 0 0 8px;
+	width: 50%; 
+	height: 20px; 
+	margin: 95px 10px auto auto; 
+	float: right;
+	text-align:right;
 }
 #header a.readMore{
 	display:block;
@@ -101,7 +131,7 @@ ul{
 	width:100%;
 	height:35px;
 	position:relative;
-	margin:0 auto;
+	margin:2px auto;
 }
 #top_menu ul{
 	height:35px;
@@ -143,20 +173,22 @@ ul{
 }
 #body{
 	width:978px;
-	padding:13px 1px 13px 2px;
-	margin:0 auto;
+	padding:5px 1px 5px 2px;
+	margin: 4px auto 2px auto;
+	background-color: White;
+	border: solid 2px #b9b99d;
 }
 #left{
-	width:357px;
+	width:415px;
 	float:left;
 }
 
 #left2{
-	width:316px;
+	width:380px;
 	background:url(images/lft_box_bg.gif) 0 0 no-repeat #EAEADA;
 	border:#DDDDCA solid 7px;
-	margin:0 0 4px 0;
-	padding:5px 10px 6px 17px;
+	margin:0;
+	padding:5px 10px 6px 9px;
 	color:#878767;
 }
 #left2 p.pic2{
@@ -172,7 +204,8 @@ ul{
 	padding:0 0 0 15px;
 	border-left:#F9F9F1 solid 2px;
 	font:normal 11px/16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-	width:199px;
+	width:265px;
+	margin-top: 10px;
 }
 #left2 p.boxTxt2 span{
 	font:normal 19px/17px Arial, Helvetica, sans-serif;
@@ -185,10 +218,10 @@ ul{
 	display:block;
 }
 #left3{
-	width:324px;
+	width:380px;
 	background:url(images/lft_box_bg.gif) 0 0 no-repeat #EAEADA;
 	border:#DDDDCA solid 7px;
-	margin:0;
+	margin-top: 3px;
 	padding:5px 10px 6px 9px;
 	color:#878767;
 }
@@ -205,7 +238,7 @@ ul{
 	padding:0 0 0 15px;
 	border-left:#F9F9F1 solid 2px;
 	font:normal 11px/16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-	width:199px;
+	width:265px;
 }
 #left3 p.boxTxt3 span{
 	font:normal 19px/17px Arial, Helvetica, sans-serif;
@@ -218,9 +251,9 @@ ul{
 	display:block;
 }
 #right{
-	width:608px;
+	width:558px;
 	float:right;
-	background:url(images/right_panel_bg.gif) 0 0 repeat-y;
+	margin-right: 5px;		
 }
 #right p.rightTop{
 	display:block;
@@ -459,7 +492,7 @@ clear:both;
 
 #footer{
 	width:977px;
-	height:125px;
+	height:85px;
 	margin:0 auto;
 	background:url(images/footer_bg.gif) 0 0 repeat-x #323232;
 	color:#fff;
@@ -497,16 +530,20 @@ clear:both;
 	top:49px;
 }
 #footer a.subscribe{
-	background:url(images/subscribe_icon.gif) 0 2px no-repeat;
-	font:normal 11px/12px Arial, Helvetica, sans-serif;
-	color:#B9B99D;
-	background-color:inherit;
-	position:absolute;
-	left:19px;
-	top:68px;
-	text-decoration:underline;
-	width:50px;
-	padding:0 0 0 18px;
+	background-position: 0 2px;
+    font: normal 11px/12px Arial, Helvetica, sans-serif;
+    color:#B9B99D;
+	    background-color:inherit;
+	    position:absolute;
+	    left:19px;
+	    top:68px;
+	    text-decoration:underline;
+	    width:50px;
+	    padding:0 0 0 18px;
+    height: 12px;
+    background-image: url('images/subscribe_icon.gif');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 #footer a.subscribe:hover{
 	color:#9CCC37;
@@ -547,8 +584,9 @@ clear:both;
 	color:#C5BE25;
 	background-color:inherit;
 	position:absolute;
-	left:19px;
-	top:85px;
+	right:19px;
+	top:15px;
+	float:right;
 }
 #footer p.design a{
 	color:#FFFFFF; background-color:inherit; text-decoration:none;

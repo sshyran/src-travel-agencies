@@ -9,7 +9,7 @@ namespace onlinebus.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [HandleError]
+    
     public class HomeController : Controller
     {
         /// <summary>
@@ -18,7 +18,7 @@ namespace onlinebus.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to Online Bus Ticket Reservation System!";
+            //ViewData["Message"] = "Welcome to Online Bus Ticket Reservation System!";
             
             return View();
         }
@@ -27,8 +27,16 @@ namespace onlinebus.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult About()
+        public ActionResult SearchDetail()
         {
+            return View();
+        }
+
+        /// <summary>
+        /// About Us
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AboutUs() {
             return View();
         }
     }
