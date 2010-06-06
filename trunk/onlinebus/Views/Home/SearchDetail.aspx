@@ -7,24 +7,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="NewMainContent" runat="server">
     <form id="form1" runat="server">
     <!-- Phan noi dung hien thi xe Buses tim duoc -->
-    <div id="MainResult" style="width:75%;border:solid 1px #36809d;float:left;padding: 10px;background-color:#64aeca">
+    <div id="s_MainResult">
         <!-- Phan Header -->
-        <div id="TopHeaderResult" style="width:100%;height:30px;border: solid 1px #36809d;background-color:White;">
-            <div style="padding: 5px;font-weight:bold">Depart Way : <span style="color:Blue">ahmedabad</span> to <span style="color:#ff8000">aanjar</span>  on : <span style="color:Red">06-Jun-2010</span></div>
+        <div id="s_TopHeaderResult">
+            <div id="s_depart">Depart Way : <span style="color:Blue">ahmedabad</span> to <span style="color:#ff8000">aanjar</span>  on : <span style="color:Red">06-Jun-2010</span></div>
         </div>
         <!-- Ket Thuc Phan Header -->
         <!-- Phan body -->
-        <div id="BodyResult" style="width:100%;height:300px;border: solid 1px #36809d;background-color:White;margin-top: 3px"></div>
+        <div id="s_BodyResult"></div>
         <!-- Ket thuc phan body -->
     </div>
     <!-- Ket thuc Phan noi dung hien thi xe Buses tim duoc --> 
     <!-- Phan hien thi Menu tim kiem -->  
-    <div style="width: 20%; float: right; padding: 5px;">
-        <table id = "tblMenuRight" style="width: 100%;float:right; border: solid 1px #b9b99d; margin-right: 5px;" cellspacing="2">
+    <div id="s_title1">
+        <table id = "s_tblMenuRight" cellspacing="2">
             <tr>
                 <td>
-                    <div id="MenuTitle" style="height: 30px; padding: 10px 15px 10px 15px; background-color: #347c95;
-                        font-size: 15pt; color: White; font-weight: bold; text-align: center">
+                    <div id="s_MenuTitle">
                         Search Buses</div>
                 </td>
             </tr>
