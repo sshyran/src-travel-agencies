@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="db_OBTRS">
+  <DataContextMoniker Name="/db_OBTRSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0872a1ea-8a65-46f0-8914-dd926cd0fa20" absoluteBounds="0.625, 0.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/db_OBTRSDataContext/tbl_CompanyInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="134d1cae-9f41-4224-8eb9-84a7470677c3" absoluteBounds="0.63999999999999968, 1.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a427cd85-a93d-4c89-b08d-d374fe1bad6a" absoluteBounds="6, 0.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/db_OBTRSDataContext/tbl_Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8bd922f1-5cfc-4218-ab41-8db9e70af196" absoluteBounds="6.015, 1.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="def813d5-d1c9-461f-9735-a71ec2cf070b" absoluteBounds="3.375, 0.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/db_OBTRSDataContext/tbl_Administrator" />
+      <nestedChildShapes>
+        <elementListCompartment Id="baa769a8-3b9b-42af-8305-0ed7afd0baa4" absoluteBounds="3.39, 1.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 1.31814697265625); (5.375 : 1.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/db_OBTRSDataContext/tbl_Role/tbl_Role_tbl_Administrator" />
+      <nodes>
+        <classShapeMoniker Id="a427cd85-a93d-4c89-b08d-d374fe1bad6a" />
+        <classShapeMoniker Id="def813d5-d1c9-461f-9735-a71ec2cf070b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3411c02e-3508-4e2b-abf8-5de57647bc9b" absoluteBounds="0.625, 2.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/db_OBTRSDataContext/tbl_Service" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5e5d81f-1c5a-4f88-912e-a7e8da91da36" absoluteBounds="0.64000000000000012, 3.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="092e06eb-1ed0-4fcf-8aea-c9bef3197ad3" absoluteBounds="5.875, 2.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/db_OBTRSDataContext/tbl_New" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2738311-b7dc-486a-9369-cd8e79a24e2f" absoluteBounds="5.89, 2.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6a1a2519-4ff2-4356-b492-c7ff6f93fa2e" absoluteBounds="3.625, 4.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/db_OBTRSDataContext/tbl_AccountCustomer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d95a75a4-a0f2-4620-8fcb-eeab6993209b" absoluteBounds="3.64, 5.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

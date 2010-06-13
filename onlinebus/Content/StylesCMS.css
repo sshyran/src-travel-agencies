@@ -1,0 +1,101 @@
+﻿body
+{
+    background-color: White;
+    font-size: 10pt;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    margin: 2px;
+    padding: 5;
+    color: #696969;
+}
+
+a:link
+{
+    color: #696969;
+    text-decoration: none;
+}
+a:visited
+{
+    color: #696969;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #696969;
+    text-decoration: none;           
+}
+a:active
+{
+    color: Red;
+}
+
+.MaxHeightGrd
+{
+    max-height: 990px;    
+}
+.CMSName
+{
+	width: 100%;
+	height: auto;
+	float: left;
+	font-size: 18pt;
+	font-weight:bold;
+	color: White;
+	border-bottom: solid 1px white; 	
+}
+.CompanyName
+{
+	width: 100%;
+	height: auto;
+	float: left;
+	color: White;
+	font-size: 12pt;
+}
+.LoginForm
+{
+	width: 400px;
+	height: 260px;
+	margin-top: 100px;
+	border: solid 2px #657680;
+	background-color: #badaed;
+}
+.InnerForm
+{
+	width: 396px;
+	height: 256px;
+	border: solid 2px #ffffff;
+	background-color: #badaed;	
+}
+.FormLoginLogo
+{
+	width: 60%;
+	height: auto;
+	float: left;
+	text-align:left; 
+	margin-left:15px; 
+	margin-top: 15px;
+	font-weight: bold;
+	color: #101a42;
+	font-size: 14pt;
+	border-bottom: solid 1px #101a42;	
+}
+.TextboxStandard
+{
+    width: 200px;
+    font-size: 12pt;
+    color: #4a4a4a;    
+}
+.TextboxSearch
+{
+    width: 300px;
+    height: 20px;
+    font-size: 12pt;
+    color: #4a4a4a;
+}
+img
+{
+    border-style: none;    
+}
+.error
+{
+    color:Red;    
+}
