@@ -103,21 +103,30 @@
                             <li><a href="/CMS/ServicesManagement">Services Management</a></li>                            
                         </ul>
                     </li>
-                    <li class="folder"><a href="#">Tin tức</a>
+                    <li class="folder"><a href="#">Management</a>
                         <ul>
-                            <li><a href="/CMS/AddNews">Thêm tin tức</a></li>
-                            <li><a href="/CMS/News">Quản lý tin tức</a></li>
+                            <li><a href="/CMS/#">Discount - Promotion</a></li>
+                            <li><a href="/CMS/#">Cities - Destination</a></li>
+                            <li><a href="/CMS/#">Bus Route</a></li>
+                            <li><a href="/CMS/#">Bus Ticket</a></li>
+                            <li><a href="/CMS/#">Customer</a></li>
                         </ul>
                     </li>
-                    <li><a href="/CMS/ViewManage">Quản lý hiển thị</a></li>
-                    <li><a href="/CMS/MenuManage/0">Quản lý Menu</a></li>
+                    <li class="folder"><a href="#">Bus's Diagram</a>
+                        <ul>
+                            <li><a href="/CMS/BusDiagram_12">12 Seats</a></li>
+                            <li><a href="/CMS/BusDiagram_24">24 Seats</a></li>
+                            <li><a href="/CMS/BusDiagram_45">45 Seats</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/CMS/#">Charts</a></li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>
                 <div class="MenuTitle">
-                    User Management</div>
+                    Admin Management</div>
             </td>
         </tr>
         <tr>
@@ -125,8 +134,8 @@
                 <ul>
                     <li class="folder"><a href="#">Manager</a>
                         <ul>
-                            <li><a href="/CMS/AddNewAdmin">Add New Manager</a></li>
-                            <li><a href="/CMS/ManagerList">Manager List</a></li>
+                            <li><a href="/CMS/AddNewAdmin">Add New Admin</a></li>
+                            <li><a href="/CMS/ManagerList">Admin List</a></li>
                         </ul>
                     </li>
                 </ul>

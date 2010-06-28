@@ -595,7 +595,37 @@ clear:both;
 #footer p.design a:hover{
 	color:#C5BE25; background-color:inherit;
 	}
+img
+{
+    border-style: none;    
+}
 .error
 {
     color:Red;    
+}
+.TextboxStandard
+{
+    width: 200px;
+    height: 27px;
+    font-size: 12pt;
+    color: #4a4a4a;     
+}
+.TextboxSmall
+{
+    width: 50px;
+    height: 27px;
+    font-size: 12pt;
+    color: #4a4a4a;     
+}
+.TextboxSearch
+{
+    width: 200px;
+    height: 20px;
+    font-size: 12pt;
+    color: #4a4a4a;    
+}
+/* Hinh nen cho ghe da dc booking */
+.Unavailable
+{
+    background-image: url('../Content/Navigator/bgBooking.png');
 }

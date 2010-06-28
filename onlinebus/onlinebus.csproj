@@ -573,6 +573,7 @@
     </None>
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <Content Include="Content\jquery.innerfade.js" />
+    <Content Include="Content\Navigator\bgBooking.png" />
     <Content Include="Content\Pictures\buses_1.png" />
     <Content Include="Content\Pictures\buses_2.png" />
     <Content Include="Content\Pictures\buses_3.jpg" />
@@ -599,6 +600,9 @@
     <Content Include="Views\CMS\AboutUs.aspx" />
     <Content Include="Views\CMS\AddNewAdmin.aspx" />
     <Content Include="Views\CMS\AddNews.aspx" />
+    <Content Include="Views\CMS\BusDiagram_12.aspx" />
+    <Content Include="Views\CMS\BusDiagram_24.aspx" />
+    <Content Include="Views\CMS\BusDiagram_45.aspx" />
     <Content Include="Views\CMS\ContactUs.aspx" />
     <Content Include="Views\CMS\AddService.aspx" />
     <Content Include="Views\CMS\EditAdmin.aspx" />
@@ -610,13 +614,20 @@
     <Content Include="Views\CMS\PrivacyPolicy.aspx" />
     <Content Include="Views\CMS\TermCondition.aspx" />
     <Content Include="Views\CMS\WelcomeAptech.aspx" />
+    <Content Include="Views\Home\BookingDetail.aspx" />
+    <Content Include="Views\Home\BusTicketOffice.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\DetailNews.aspx" />
     <Content Include="Views\Home\DetailService.aspx" />
     <Content Include="Views\Home\GetAllNewsPage.aspx" />
     <Content Include="Views\Home\GetAllServicesPage.aspx" />
+    <Content Include="Views\Home\Payment.aspx" />
     <Content Include="Views\Home\PrivacyPolicy.aspx" />
+    <Content Include="Views\Home\RegisterMember.aspx" />
     <Content Include="Views\Home\TermCondition.aspx" />
+    <Content Include="Views\Shared\Bus_12_Seat.htm" />
+    <Content Include="Views\Shared\Bus_24_Seat.htm" />
+    <Content Include="Views\Shared\Bus_45_Seat.htm" />
     <Content Include="Views\Shared\CMS_MasterPage.Master" />
     <Content Include="bin\onlinebus.dll" />
     <Content Include="bin\onlinebus.pdb" />

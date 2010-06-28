@@ -107,6 +107,7 @@ namespace onlinebus.Controllers
                     }
                     else { 
                         ViewData["Result"] = db.UpdateAboutUs(form.Get("RichTextEditor"));
+                        ViewData["Data"] = db.GetAboutUs();
                     } 
                     return View();
                 }
@@ -140,6 +141,7 @@ namespace onlinebus.Controllers
                     else
                     {
                         ViewData["Result"] = db.UpdateContactUs(form.Get("RichTextEditor"));
+                        ViewData["Data"] = db.GetContactUs();
                     }
                     return View();
                 }
@@ -173,6 +175,7 @@ namespace onlinebus.Controllers
                     else
                     {
                         ViewData["Result"] = db.UpdateTermCondititon(form.Get("RichTextEditor"));
+                        ViewData["Data"] = db.GetTermCondition();
                     }
                     return View();
                 }
@@ -206,6 +209,7 @@ namespace onlinebus.Controllers
                     else
                     {
                         ViewData["Result"] = db.UpdatePrivacyPolicy(form.Get("RichTextEditor"));
+                        ViewData["Data"] = db.GetPrivacyPolicy();
                     }
                     return View();
                 }
@@ -404,15 +408,22 @@ namespace onlinebus.Controllers
         //Them moi Adminnistrator
         public ActionResult AddNewAdmin() 
         {
-            if (Session["Role"].ToString() != "F")
-            {
-                Response.Write("Access denied!");
-                return null;
+            try
+            {            
+                if (Session["Role"].ToString() != "F")
+                {
+                    Response.Write("Access denied!");
+                    return null;
+                }
+                else
+                {
+                    ViewData["Role"] = GetRoleForView();
+                    return View();
+                }
             }
-            else
+            catch (Exception)
             {
-                ViewData["Role"] = GetRoleForView();
-                return View();
+                return Redirect("/CMS/");
             }
         }
 
@@ -461,16 +472,23 @@ namespace onlinebus.Controllers
         //Sua chua thong tin Adminnistrator
         [HttpGet]
         public ActionResult EditAdmin()
-        {            
-            if (Session["Role"].ToString() != "F")
-            {
-                Response.Write("Access denied!");
-                return null;
+        {
+            try
+            {                        
+                if (Convert.ToString(Session["Role"]) != "F")
+                {
+                    Response.Write("Access denied!");
+                    return null;
+                }
+                else {
+                    ViewData["Role"] = GetRoleForView();
+                    return View();
+                }
             }
-            else {
-                ViewData["Role"] = GetRoleForView();
-                return View();
-            }            
+            catch (Exception)
+            {
+                return Redirect("/CMS/");
+            }                      
         }
 
         //Sua chua thong tin Adminnistrator
@@ -478,43 +496,199 @@ namespace onlinebus.Controllers
         //[HttpGet]
         public ActionResult EditAdmin(String adminID, ValidateAdmin vAdmin, FormCollection form)
         {
-            ViewData["Role"] = GetRoleForView();
+            try
+            {            
+                ViewData["Role"] = GetRoleForView();
 
-            if (ModelState.IsValid)
-            {
-                RepositoryOBTRS db = new RepositoryOBTRS();
-                Boolean active = true;
-                if (form.Get("Active") == "false")
+                if (ModelState.IsValid)
                 {
-                    active = false;
+                    RepositoryOBTRS db = new RepositoryOBTRS();
+                    Boolean active = true;
+                    if (form.Get("Active") == "false")
+                    {
+                        active = false;
+                    }
+                    String result = db.UpdateAdmin(
+                                        adminID,
+                                        form.Get("Role"),
+                                        form.Get("AdminName"),
+                                        DateTime.Parse(form.Get("DateOfBirth")),
+                                        form.Get("Password"),
+                                        form.Get("Address"),
+                                        form.Get("Phone"),
+                                        form.Get("Email"),
+                                        form.Get("Description"),
+                                        active
+                                        );
+                    if (result == "")
+                    {
+                        //Neu cap nhat admin thanh cong                    
+                        return Redirect("/CMS/ManagerList");
+                    }
+                    else
+                    {
+                        //Neu gap truc trac ko the cap nhat Admin
+                        ViewData["Error"] = result;
+                        return View(vAdmin);
+                    }
                 }
-                String result = db.UpdateAdmin(
-                                    adminID,
-                                    form.Get("Role"),
-                                    form.Get("AdminName"),
-                                    DateTime.Parse(form.Get("DateOfBirth")),
-                                    form.Get("Password"),
-                                    form.Get("Address"),
-                                    form.Get("Phone"),
-                                    form.Get("Email"),
-                                    form.Get("Description"),
-                                    active
-                                    );
-                if (result == "")
+            }
+            catch (Exception)
+            {
+                return Redirect("/CMS/");
+            }
+            //Neu gia tri nhap vao ko dung
+            return View(vAdmin);
+        }
+
+        //Ve so do xe Bus 12 seats
+        [ValidateInput(false)]
+        public ActionResult BusDiagram_12(FormCollection form)
+        {
+            try
+            {
+                if (Session["Role"].ToString() == "N")
                 {
-                    //Neu cap nhat admin thanh cong                    
-                    return Redirect("/CMS/ManagerList");
+                    Response.Write("Access denied!");
+                    return null;
                 }
                 else
                 {
-                    //Neu gap truc trac ko the cap nhat Admin
-                    ViewData["Error"] = result;
-                    return View(vAdmin);
+                    RepositoryOBTRS db = new RepositoryOBTRS(); 
+                   
+                    //----------------- 12 Seats ------------------
+                    //Lay du lieu diagram tu Database
+                    ViewData["Data"] = db.GetBusDiagram(1);
+
+                    //Cap nhat du lieu vao Database
+                    if (form.Get("RichTextEditor") != null)
+                    {
+                        if (Session["Role"].ToString() == "R")
+                        {
+                            ViewData["Result"] = "Your role is readonly";
+                        }
+                        else
+                        {
+                            ViewData["Result"] = db.UpdateBusDiagram(form.Get("RichTextEditor"), 1);
+                            //Lay du lieu diagram tu Database
+                            ViewData["Data"] = db.GetBusDiagram(1);
+                        }
+                        return View();
+                    }
+                    else
+                    {
+                        ViewData["Result"] = "";
+                    }
+                    //----------------------------------------------
+
+                    return View();
                 }
             }
+            catch (Exception)
+            {                
+                //Chuyen ve trang dang nhap
+                return Redirect("/CMS/WelcomeAptech?logout=true");
+            }
+        }
 
-            //Neu gia tri nhap vao ko dung
-            return View(vAdmin);
+        //Ve so do xe Bus 24 seats
+        [ValidateInput(false)]
+        public ActionResult BusDiagram_24(FormCollection form) 
+        {
+            try
+            {
+                if (Session["Role"].ToString() == "N")
+                {
+                    Response.Write("Access denied!");
+                    return null;
+                }
+                else
+                {
+                    RepositoryOBTRS db = new RepositoryOBTRS();
+
+                    //----------------- 24 Seats ------------------
+                    //Lay du lieu diagram tu Database
+                    ViewData["Data"] = db.GetBusDiagram(2);
+
+                    //Cap nhat du lieu vao Database
+                    if (form.Get("RichTextEditor") != null)
+                    {
+                        if (Session["Role"].ToString() == "R")
+                        {
+                            ViewData["Result"] = "Your role is readonly";
+                        }
+                        else
+                        {
+                            ViewData["Result"] = db.UpdateBusDiagram(form.Get("RichTextEditor"), 2);
+                            //Lay du lieu diagram tu Database
+                            ViewData["Data"] = db.GetBusDiagram(2);
+                        }
+                        return View();
+                    }
+                    else
+                    {
+                        ViewData["Result"] = "";
+                    }
+                    //----------------------------------------------
+
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+                //Chuyen ve trang dang nhap
+                return Redirect("/CMS/WelcomeAptech?logout=true");
+            }        
+        }
+
+        //Ve so do xe Bus 24 seats
+        [ValidateInput(false)]
+        public ActionResult BusDiagram_45(FormCollection form)
+        {
+            try
+            {
+                if (Session["Role"].ToString() == "N")
+                {
+                    Response.Write("Access denied!");
+                    return null;
+                }
+                else
+                {
+                    RepositoryOBTRS db = new RepositoryOBTRS();
+
+                    //----------------- 45 Seats ------------------
+                    //Lay du lieu diagram tu Database
+                    ViewData["Data"] = db.GetBusDiagram(3);
+
+                    //Cap nhat du lieu vao Database
+                    if (form.Get("RichTextEditor") != null)
+                    {
+                        if (Session["Role"].ToString() == "R")
+                        {
+                            ViewData["Result"] = "Your role is readonly";
+                        }
+                        else
+                        {
+                            ViewData["Result"] = db.UpdateBusDiagram(form.Get("RichTextEditor"), 3);
+                            //Lay du lieu diagram tu Database
+                            ViewData["Data"] = db.GetBusDiagram(3);
+                        }
+                        return View();
+                    }
+                    else
+                    {
+                        ViewData["Result"] = "";
+                    }
+                    //----------------------------------------------
+
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+                //Chuyen ve trang dang nhap
+                return Redirect("/CMS/WelcomeAptech?logout=true");
+            }
         }
 
 

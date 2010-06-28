@@ -17,8 +17,8 @@ namespace onlinebus.Models.Validation
         public DateTime DateOfBirth { get; set; }
 
         [Required(ErrorMessage = "*")]
-        //[StringLength(20, ErrorMessage = "Value must under than 20 character")]
-        [Range(4, 20, ErrorMessage = "Value must bigger than 4 and under than 20 character")]
+        [StringLength(20, ErrorMessage = "Value must under than 20 character")]
+        //[Range(4, 20, ErrorMessage = "Value must bigger than 4 and under than 20 character")]        
         public String Password { get; set; }
 
         [Required(ErrorMessage = "*")]

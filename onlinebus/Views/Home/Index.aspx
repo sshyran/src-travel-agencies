@@ -15,6 +15,13 @@
     Index
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="NewMainContent" runat="server">
+
+<script type="text/javascript">
+        function CityChanged(id) {
+            document.location = "?Departure=" + $("#CityDeparture").val();
+        }
+    </script>
+
     <!-- LEFT CONTENT -->
     <div id="left">
         <div id="left2">
@@ -32,15 +39,11 @@
                 <span>How is different?</span> How is travel Book <strong>bus tickets</strong> "live".
                 No request booking
                 <br />
-                <br />
                 Largest bus ticket inventory for 5000+ bus routes.
-                <br />
                 <br />
                 Pay only bus ticket price.
                 <br />
-                <br />
                 No additional charge.
-                <br />
                 <br />
                 Return bus ticket booking and cancellation facility</p>
             <br class="spacer" />
@@ -56,17 +59,13 @@
                         SEARCH BUSES</h2>
                 </div>
             </div>
-            <form id="form2" runat="server">
+            <form id="form2" method="post">
             <div class="searchmid">
-                <table style="width: 100%" cellspacing="10">
+                <!-- Bang Search  -->
+                <table style="width: auto;" align="center" cellspacing="5">
                     <tr>
                         <td colspan="2">
-                            Bus Search :
-                            <input type="radio" checked="checked" value="V1" name="rblRoundTrip" id="rblRoundTrip_0"
-                                title="Select if one way (no return journey) booking needed" />
-                            One Way
-                            <input type="radio" value="V1" name="rblRoundTrip" id="rblRoundTrip_1" title="Select if return journey booking needed" />
-                            Round Trip
+                            ONLINE BUS BOOKING
                         </td>
                     </tr>
                     <tr>
@@ -79,23 +78,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <select class="comboNC" style="width: 100%" name="D1">
-                                <option value="48" selected="selected">Ha noi</option>
-                                <option value="203">Hue</option>
-                                <option value="203">Hai Phong</option>
-                                <option value="203">Da Nang</option>
-                                <option value="203">Tp.Ho Chi Minh</option>
-                            </select>
+                            <%= Html.DropDownList("CityDeparture", (IEnumerable<SelectListItem>)ViewData["CityStart"], new { @class = "TextboxStandard", onchange = "CityChanged()" })%>
                         </td>
                         <td>
-                            <select class="comboNC" style="width: 100%" name="D2">
-                                <option value="48">Ha noi</option>
-                                <option value="203">Hue</option>
-                                <option value="203">Hai Phong</option>
-                                <option value="203" selected="selected">Da Nang</option>
-                                <option value="203">Quang Ninh</option>
-                                <option value="203">Tp.Ho Chi Minh</option>
-                            </select>
+                            <%= Html.DropDownList("CityDestination",(IEnumerable<SelectListItem>)ViewData["CityEnd"], new { @class = "TextboxStandard" })%>
                         </td>
                     </tr>
                     <tr>
@@ -103,29 +89,28 @@
                             Depart:&nbsp;
                         </td>
                         <td>
-                            Return:&nbsp;
+                            &nbsp;
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input type="text" style="width: 100%;" readonly="readonly" class="textbox" title="Departure Date"
+                        <td style="vertical-align: top">
+                            <input type="text" readonly="readonly" class="TextboxStandard" title="Departure Date"
                                 id="txtDepartureDate" name="txtDepartureDate" />
                         </td>
                         <td>
-                            <input type="text" style="width: 100%;" readonly="readonly" class="textbox" title="Return Date"
-                                id="txtReturnDate" name="txtReturnDate" />
+                            <div class="button">
+                                <input id="SearchBuses" name="SearchBuses" type="submit" value="Search Buses" />
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                         </td>
                         <td>
-                            <div class="button">
-                                <a href="/Home/SearchDetail">Search Buses</a>
-                            </div>
                         </td>
                     </tr>
                 </table>
+                <!--  Ket thuc bang Seatch -->
             </div>
             </form>
             <div class="searchbot">

@@ -1,21 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="OBTRS_DB" Class="db_OBTRSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=VUTUANMINH-PC\SQLEXPRESS2005;Initial Catalog=OBTRS_DB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OBTRS_DBConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tbl_CompanyInfo" Member="tbl_CompanyInfos">
-    <Type Name="tbl_CompanyInfo">
-      <Column Name="id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="AboutUs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ContactUs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TermAndCondition" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PrivacyPolicy" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Roles" Member="tbl_Roles">
-    <Type Name="tbl_Role">
-      <Column Name="Role_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Role_Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Role_Alias" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
-      <Association Name="tbl_Role_tbl_Administrator" Member="tbl_Administrators" ThisKey="Role_ID" OtherKey="Admin_RoleID" Type="tbl_Administrator" />
+  <Table Name="dbo.tbl_AccountCustomer" Member="tbl_AccountCustomers">
+    <Type Name="tbl_AccountCustomer">
+      <Column Name="AccountCustomerID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AccountCustomer_Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountCustomer_Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountCustomer_IDNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="AccountCustomer_FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountCustomer_Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccountCustomer_Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccountCustomer_Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="AccountCustomer_PhoneNumber" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccountCustomer_Job" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="tbl_AccountCustomer_tbl_BusTicket" Member="tbl_BusTickets" ThisKey="AccountCustomerID" OtherKey="Ticket_CustomerID" Type="tbl_BusTicket" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Administrator" Member="tbl_Administrators">
@@ -36,16 +34,59 @@
       <Association Name="tbl_Role_tbl_Administrator" Member="tbl_Role" ThisKey="Admin_RoleID" OtherKey="Role_ID" Type="tbl_Role" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_Services" Member="tbl_Services">
-    <Type Name="tbl_Service">
-      <Column Name="Services_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Services_Title" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Services_Release" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Services_Edit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Services_Content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Services_Image" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Services_ReadCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Services_Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.tbl_BusRoute" Member="tbl_BusRoutes">
+    <Type Name="tbl_BusRoute">
+      <Column Name="BusRoute_CityStartID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BusRoute_CityEndID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BusRoute_BusTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BusRoute_StartTime" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BusRoute_EstimateTime" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_Length" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_DayOfWeek" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_BusRoute_tbl_BusTicket" Member="tbl_BusTickets" ThisKey="BusRoute_CityStartID,BusRoute_CityEndID,BusRoute_BusTypeID,BusRoute_StartTime" OtherKey="Ticket_CityStartID,Ticket_CityEndID,Ticket_BusTypeID,Ticket_BusStartTime" Type="tbl_BusTicket" />
+      <Association Name="tbl_BusType_tbl_BusRoute" Member="tbl_BusType" ThisKey="BusRoute_BusTypeID" OtherKey="BusType_ID" Type="tbl_BusType" IsForeignKey="true" />
+      <Association Name="tbl_City_tbl_BusRoute" Member="tbl_City" ThisKey="BusRoute_CityEndID" OtherKey="City_ID" Type="tbl_City" IsForeignKey="true" />
+      <Association Name="tbl_City_tbl_BusRoute1" Member="tbl_City1" ThisKey="BusRoute_CityStartID" OtherKey="City_ID" Type="tbl_City" IsForeignKey="true" />
+      <Association Name="tbl_DayOfWeek_tbl_BusRoute" Member="tbl_DayOfWeek" ThisKey="BusRoute_DayOfWeek" OtherKey="DoW_ID" Type="tbl_DayOfWeek" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_BusType" Member="tbl_BusTypes">
+    <Type Name="tbl_BusType">
+      <Column Name="BusType_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BusType_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusType_Seat" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_BusType_tbl_BusRoute" Member="tbl_BusRoutes" ThisKey="BusType_ID" OtherKey="BusRoute_BusTypeID" Type="tbl_BusRoute" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_City" Member="tbl_Cities">
+    <Type Name="tbl_City">
+      <Column Name="City_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="City_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_City_tbl_BusRoute" Member="tbl_BusRoutes" ThisKey="City_ID" OtherKey="BusRoute_CityEndID" Type="tbl_BusRoute" />
+      <Association Name="tbl_City_tbl_BusRoute1" Member="tbl_BusRoutes1" ThisKey="City_ID" OtherKey="BusRoute_CityStartID" Type="tbl_BusRoute" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_DayOfWeek" Member="tbl_DayOfWeeks">
+    <Type Name="tbl_DayOfWeek">
+      <Column Name="DoW_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DoW_Sunday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DoW_Monday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DoW_Tuesday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DoW_Wednesday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DoW_Thursday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DoW_Friday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DoW_Saturday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_DayOfWeek_tbl_BusRoute" Member="tbl_BusRoutes" ThisKey="DoW_ID" OtherKey="BusRoute_DayOfWeek" Type="tbl_BusRoute" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CompanyInfo" Member="tbl_CompanyInfos">
+    <Type Name="tbl_CompanyInfo">
+      <Column Name="id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AboutUs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ContactUs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TermAndCondition" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PrivacyPolicy" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_News" Member="tbl_News">
@@ -60,18 +101,48 @@
       <Column Name="News_Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_AccountCustomer" Member="tbl_AccountCustomers">
-    <Type Name="tbl_AccountCustomer">
-      <Column Name="AccountCustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="AccountCustomer_Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="AccountCustomer_Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="AccountCustomer_IDNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="AccountCustomer_FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="AccountCustomer_Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="AccountCustomer_Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="AccountCustomer_Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="AccountCustomer_PhoneNumber" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="AccountCustomer_Job" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+  <Table Name="dbo.tbl_Roles" Member="tbl_Roles">
+    <Type Name="tbl_Role">
+      <Column Name="Role_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Role_Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Role_Alias" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_Role_tbl_Administrator" Member="tbl_Administrators" ThisKey="Role_ID" OtherKey="Admin_RoleID" Type="tbl_Administrator" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Services" Member="tbl_Services">
+    <Type Name="tbl_Service">
+      <Column Name="Services_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Services_Title" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Services_Release" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Services_Edit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Services_Content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Services_Image" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Services_ReadCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Services_Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_DrawFaceBus" Member="tbl_DrawFaceBus">
+    <Type Name="tbl_DrawFaceBus">
+      <Column Name="ID" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Draw_FaceBus" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_BusTicket" Member="tbl_BusTickets">
+    <Type Name="tbl_BusTicket">
+      <Column Name="Ticket_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ticket_CityStartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_CityEndID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_BusTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_BusStartTime" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_CustomerID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_CusName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_CusAge" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_SeatNumber" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ticket_DepartureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ticket_Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_AccountCustomer_tbl_BusTicket" Member="tbl_AccountCustomer" ThisKey="Ticket_CustomerID" OtherKey="AccountCustomerID" Type="tbl_AccountCustomer" IsForeignKey="true" />
+      <Association Name="tbl_BusRoute_tbl_BusTicket" Member="tbl_BusRoute" ThisKey="Ticket_CityStartID,Ticket_CityEndID,Ticket_BusTypeID,Ticket_BusStartTime" OtherKey="BusRoute_CityStartID,BusRoute_CityEndID,BusRoute_BusTypeID,BusRoute_StartTime" Type="tbl_BusRoute" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_SearchNews" Method="sp_SearchNews">
@@ -109,6 +180,58 @@
       <Column Name="Admin_Address" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="Admin_Email" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="Admin_Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetRouteMatch" Method="sp_GetRouteMatch">
+    <Parameter Name="CityStartID" Parameter="cityStartID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CityEndID" Parameter="cityEndID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DayName" Parameter="dayName" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="sp_GetRouteMatchResult">
+      <Column Name="BusType_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusType_Seat" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_CityStartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_CityEndID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_BusTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_StartTime" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_EstimateTime" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_Length" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="DayName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetRouteMatchDetail" Method="sp_GetRouteMatchDetail">
+    <Parameter Name="CityStartID" Parameter="cityStartID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CityEndID" Parameter="cityEndID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusType" Parameter="busType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartTime" Parameter="startTime" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetRouteMatchDetailResult">
+      <Column Name="BusType_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusType_Seat" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_StartTime" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_EstimateTime" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_Length" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_CityStartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_CityEndID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_BusTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusRoute_StartTime1" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_CalculateDiscount" Method="sp_CalculateDiscount">
+    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Age" Parameter="age" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_CalculateDiscountResult">
+      <Column Name="Result" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetSelectedSeat" Method="sp_GetSelectedSeat">
+    <Parameter Name="CityStartID" Parameter="cityStartID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CityEndID" Parameter="cityEndID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusTypeID" Parameter="busTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusStartTime" Parameter="busStartTime" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Depart" Parameter="depart" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_GetSelectedSeatResult">
+      <Column Name="Seat" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

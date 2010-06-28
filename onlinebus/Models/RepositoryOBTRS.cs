@@ -415,5 +415,122 @@ namespace onlinebus.Models
             return admin;
         }
 
+        //Lay danh sach thanh pho di tu bang cac tuyen xe da co tren danh sach
+        public List<int> GetCityStart()
+        {
+            List<int> city = (from tbl in db_OBTRS.tbl_BusRoutes                                                                              
+                        select tbl.BusRoute_CityStartID).Distinct().ToList();            
+            return city;
+        }
+
+        //Lay danh sach thanh pho den tu bang cac tuyen xe da co tren danh sach
+        public List<int> GetCityEnd(int StartID)
+        {
+            List<int> city = (from tbl in db_OBTRS.tbl_BusRoutes
+                              where tbl.BusRoute_CityStartID == StartID
+                              select tbl.BusRoute_CityEndID).Distinct().ToList();
+            return city;
+        }
+
+        //Lay ten thanh pho
+        public String GetCityName(int id) {
+            List<tbl_City> city = (from tbl in db_OBTRS.tbl_Cities
+                                  where tbl.City_ID == id
+                                  select tbl).ToList();
+            String cityName = city[0].City_Name;
+            return cityName;
+        }
+
+        //Lay ra thong tin chi tiet cua tuyen xe
+        public List<String> GetRouteDetail(int beginID, int endID, int bustype, int starttime)
+        {
+            var detail = db_OBTRS.sp_GetRouteMatchDetail(beginID, endID, bustype, starttime).ToList();
+
+            List<String> tbl = new List<String>();
+
+            foreach (var item in detail)
+            {
+                //string str1 = item.BusType_Name.ToString();
+                //string str2 = item.BusRoute_Length.ToString();
+                tbl.Add(item.BusType_Name.ToString());
+                tbl.Add(item.BusType_Seat.ToString());
+                tbl.Add(item.BusRoute_StartTime.ToString());
+                tbl.Add(item.BusRoute_EstimateTime.ToString());
+                tbl.Add(item.BusRoute_Length.ToString());
+                tbl.Add(item.BusRoute_Cost.ToString());
+                tbl.Add(item.BusRoute_CityStartID.ToString());
+                tbl.Add(item.BusRoute_CityEndID.ToString());
+                tbl.Add(item.BusRoute_BusTypeID.ToString());
+                tbl.Add(item.BusRoute_StartTime.ToString());
+            }
+            return tbl;
+        }
+
+        //Lay so do truoc do cua xe Bus
+        public string GetBusDiagram(int id)
+        {
+            List<string> getDiagram;
+            try
+            {
+                getDiagram = (from tbl in db_OBTRS.tbl_DrawFaceBus
+                             where tbl.ID == id
+                             select tbl.Draw_FaceBus).ToList();
+                return getDiagram[0];
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+
+        //Cap nhat so do xe bus moi
+        public string UpdateBusDiagram(string diagram, int id)
+        {
+            try
+            {
+                tbl_DrawFaceBus dia = db_OBTRS.tbl_DrawFaceBus.Single(udt => udt.ID == id);
+                dia.Draw_FaceBus = diagram;
+                db_OBTRS.SubmitChanges();
+                return "Update Successful!";
+            }
+            catch (Exception)
+            {
+                return "Update Unsuccessful!";
+            }
+        }
+
+        //Dat ve - Booking ticket
+        public String InsertBookingTicket(int IDcityStart, int IDcityEnd, int IDBusType, int TimeDepart, String IDMember, String CustomerName, int CustomerAge, Decimal Cost, int SeatNo, DateTime DateDepart) { 
+            String result = "";
+            try
+            {
+                tbl_BusTicket ticket = new tbl_BusTicket();
+
+                ticket.Ticket_ID = Guid.NewGuid();
+                ticket.Ticket_CityStartID = IDcityStart;
+                ticket.Ticket_CityEndID = IDcityEnd;
+                ticket.Ticket_BusTypeID = IDBusType;
+                ticket.Ticket_BusStartTime = short.Parse(TimeDepart.ToString());
+                ticket.Ticket_CustomerID = new Guid(IDMember);
+                ticket.Ticket_CusName = CustomerName;
+                ticket.Ticket_CusAge = short.Parse(CustomerAge.ToString());
+                ticket.Ticket_Cost = Cost;
+                ticket.Ticket_SeatNumber = short.Parse(SeatNo.ToString());
+                ticket.Ticket_DepartureDate = DateDepart;
+                ticket.Ticket_Status = false;
+                db_OBTRS.tbl_BusTickets.InsertOnSubmit(ticket);
+                db_OBTRS.SubmitChanges();
+                result = "SUCCESSFUL! Seat number ["+ SeatNo +"] did booking for you.";
+            }
+            catch (Exception)
+            {
+                result = "Insert Booking Ticker UNSUCCESSFUL. Because seat's number [" + SeatNo + "] did booking!";
+            }            
+
+            return result;
+        }
+
+
+        //--------------------------------------------------------------------------------------------
     }
 }

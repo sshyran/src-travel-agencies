@@ -5,6 +5,7 @@
     var day = currentDate.getDate();
     $("#txtDepartureDate").datepicker({ minDate: new Date(year, month, day) });
     $("#txtReturnDate").datepicker({ minDate: new Date(year, month, day) });
+    //$("#txtReturnDate").attr
 });
 $(function() {
     $("button, a,submit,input", ".button").button();
