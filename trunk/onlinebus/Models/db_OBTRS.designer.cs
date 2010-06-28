@@ -30,28 +30,46 @@ namespace onlinebus.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Inserttbl_CompanyInfo(tbl_CompanyInfo instance);
-    partial void Updatetbl_CompanyInfo(tbl_CompanyInfo instance);
-    partial void Deletetbl_CompanyInfo(tbl_CompanyInfo instance);
-    partial void Inserttbl_Role(tbl_Role instance);
-    partial void Updatetbl_Role(tbl_Role instance);
-    partial void Deletetbl_Role(tbl_Role instance);
-    partial void Inserttbl_Administrator(tbl_Administrator instance);
-    partial void Updatetbl_Administrator(tbl_Administrator instance);
-    partial void Deletetbl_Administrator(tbl_Administrator instance);
-    partial void Inserttbl_Service(tbl_Service instance);
-    partial void Updatetbl_Service(tbl_Service instance);
-    partial void Deletetbl_Service(tbl_Service instance);
-    partial void Inserttbl_New(tbl_New instance);
-    partial void Updatetbl_New(tbl_New instance);
-    partial void Deletetbl_New(tbl_New instance);
     partial void Inserttbl_AccountCustomer(tbl_AccountCustomer instance);
     partial void Updatetbl_AccountCustomer(tbl_AccountCustomer instance);
     partial void Deletetbl_AccountCustomer(tbl_AccountCustomer instance);
+    partial void Inserttbl_Administrator(tbl_Administrator instance);
+    partial void Updatetbl_Administrator(tbl_Administrator instance);
+    partial void Deletetbl_Administrator(tbl_Administrator instance);
+    partial void Inserttbl_BusRoute(tbl_BusRoute instance);
+    partial void Updatetbl_BusRoute(tbl_BusRoute instance);
+    partial void Deletetbl_BusRoute(tbl_BusRoute instance);
+    partial void Inserttbl_BusType(tbl_BusType instance);
+    partial void Updatetbl_BusType(tbl_BusType instance);
+    partial void Deletetbl_BusType(tbl_BusType instance);
+    partial void Inserttbl_City(tbl_City instance);
+    partial void Updatetbl_City(tbl_City instance);
+    partial void Deletetbl_City(tbl_City instance);
+    partial void Inserttbl_DayOfWeek(tbl_DayOfWeek instance);
+    partial void Updatetbl_DayOfWeek(tbl_DayOfWeek instance);
+    partial void Deletetbl_DayOfWeek(tbl_DayOfWeek instance);
+    partial void Inserttbl_CompanyInfo(tbl_CompanyInfo instance);
+    partial void Updatetbl_CompanyInfo(tbl_CompanyInfo instance);
+    partial void Deletetbl_CompanyInfo(tbl_CompanyInfo instance);
+    partial void Inserttbl_New(tbl_New instance);
+    partial void Updatetbl_New(tbl_New instance);
+    partial void Deletetbl_New(tbl_New instance);
+    partial void Inserttbl_Role(tbl_Role instance);
+    partial void Updatetbl_Role(tbl_Role instance);
+    partial void Deletetbl_Role(tbl_Role instance);
+    partial void Inserttbl_Service(tbl_Service instance);
+    partial void Updatetbl_Service(tbl_Service instance);
+    partial void Deletetbl_Service(tbl_Service instance);
+    partial void Inserttbl_DrawFaceBus(tbl_DrawFaceBus instance);
+    partial void Updatetbl_DrawFaceBus(tbl_DrawFaceBus instance);
+    partial void Deletetbl_DrawFaceBus(tbl_DrawFaceBus instance);
+    partial void Inserttbl_BusTicket(tbl_BusTicket instance);
+    partial void Updatetbl_BusTicket(tbl_BusTicket instance);
+    partial void Deletetbl_BusTicket(tbl_BusTicket instance);
     #endregion
 		
 		public db_OBTRSDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["OBTRS_DBConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["OBTRS_DBConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -80,19 +98,11 @@ namespace onlinebus.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<tbl_CompanyInfo> tbl_CompanyInfos
+		public System.Data.Linq.Table<tbl_AccountCustomer> tbl_AccountCustomers
 		{
 			get
 			{
-				return this.GetTable<tbl_CompanyInfo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_Role> tbl_Roles
-		{
-			get
-			{
-				return this.GetTable<tbl_Role>();
+				return this.GetTable<tbl_AccountCustomer>();
 			}
 		}
 		
@@ -104,11 +114,43 @@ namespace onlinebus.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_Service> tbl_Services
+		public System.Data.Linq.Table<tbl_BusRoute> tbl_BusRoutes
 		{
 			get
 			{
-				return this.GetTable<tbl_Service>();
+				return this.GetTable<tbl_BusRoute>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_BusType> tbl_BusTypes
+		{
+			get
+			{
+				return this.GetTable<tbl_BusType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_City> tbl_Cities
+		{
+			get
+			{
+				return this.GetTable<tbl_City>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_DayOfWeek> tbl_DayOfWeeks
+		{
+			get
+			{
+				return this.GetTable<tbl_DayOfWeek>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_CompanyInfo> tbl_CompanyInfos
+		{
+			get
+			{
+				return this.GetTable<tbl_CompanyInfo>();
 			}
 		}
 		
@@ -120,11 +162,35 @@ namespace onlinebus.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_AccountCustomer> tbl_AccountCustomers
+		public System.Data.Linq.Table<tbl_Role> tbl_Roles
 		{
 			get
 			{
-				return this.GetTable<tbl_AccountCustomer>();
+				return this.GetTable<tbl_Role>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Service> tbl_Services
+		{
+			get
+			{
+				return this.GetTable<tbl_Service>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_DrawFaceBus> tbl_DrawFaceBus
+		{
+			get
+			{
+				return this.GetTable<tbl_DrawFaceBus>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_BusTicket> tbl_BusTickets
+		{
+			get
+			{
+				return this.GetTable<tbl_BusTicket>();
 			}
 		}
 		
@@ -148,142 +214,306 @@ namespace onlinebus.Models
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_GetAdminResult>)(result.ReturnValue));
 		}
+		
+		[Function(Name="dbo.sp_GetRouteMatch")]
+		public ISingleResult<sp_GetRouteMatchResult> sp_GetRouteMatch([Parameter(Name="CityStartID", DbType="Int")] System.Nullable<int> cityStartID, [Parameter(Name="CityEndID", DbType="Int")] System.Nullable<int> cityEndID, [Parameter(Name="DayName", DbType="VarChar(30)")] string dayName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cityStartID, cityEndID, dayName);
+			return ((ISingleResult<sp_GetRouteMatchResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.sp_GetRouteMatchDetail")]
+		public ISingleResult<sp_GetRouteMatchDetailResult> sp_GetRouteMatchDetail([Parameter(Name="CityStartID", DbType="Int")] System.Nullable<int> cityStartID, [Parameter(Name="CityEndID", DbType="Int")] System.Nullable<int> cityEndID, [Parameter(Name="BusType", DbType="Int")] System.Nullable<int> busType, [Parameter(Name="StartTime", DbType="Int")] System.Nullable<int> startTime)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cityStartID, cityEndID, busType, startTime);
+			return ((ISingleResult<sp_GetRouteMatchDetailResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.sp_CalculateDiscount")]
+		public ISingleResult<sp_CalculateDiscountResult> sp_CalculateDiscount([Parameter(Name="Cost", DbType="Money")] System.Nullable<decimal> cost, [Parameter(Name="Age", DbType="Int")] System.Nullable<int> age)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cost, age);
+			return ((ISingleResult<sp_CalculateDiscountResult>)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.sp_GetSelectedSeat")]
+		public ISingleResult<sp_GetSelectedSeatResult> sp_GetSelectedSeat([Parameter(Name="CityStartID", DbType="Int")] System.Nullable<int> cityStartID, [Parameter(Name="CityEndID", DbType="Int")] System.Nullable<int> cityEndID, [Parameter(Name="BusTypeID", DbType="Int")] System.Nullable<int> busTypeID, [Parameter(Name="BusStartTime", DbType="Int")] System.Nullable<int> busStartTime, [Parameter(Name="Depart", DbType="DateTime")] System.Nullable<System.DateTime> depart)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cityStartID, cityEndID, busTypeID, busStartTime, depart);
+			return ((ISingleResult<sp_GetSelectedSeatResult>)(result.ReturnValue));
+		}
 	}
 	
-	[Table(Name="dbo.tbl_CompanyInfo")]
-	public partial class tbl_CompanyInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.tbl_AccountCustomer")]
+	public partial class tbl_AccountCustomer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private short _id;
+		private System.Guid _AccountCustomerID;
 		
-		private string _AboutUs;
+		private string _AccountCustomer_Email;
 		
-		private string _ContactUs;
+		private string _AccountCustomer_Password;
 		
-		private string _TermAndCondition;
+		private string _AccountCustomer_IDNumber;
 		
-		private string _PrivacyPolicy;
+		private string _AccountCustomer_FullName;
+		
+		private System.Nullable<System.DateTime> _AccountCustomer_Birthday;
+		
+		private bool _AccountCustomer_Gender;
+		
+		private string _AccountCustomer_Address;
+		
+		private string _AccountCustomer_PhoneNumber;
+		
+		private string _AccountCustomer_Job;
+		
+		private EntitySet<tbl_BusTicket> _tbl_BusTickets;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(short value);
-    partial void OnidChanged();
-    partial void OnAboutUsChanging(string value);
-    partial void OnAboutUsChanged();
-    partial void OnContactUsChanging(string value);
-    partial void OnContactUsChanged();
-    partial void OnTermAndConditionChanging(string value);
-    partial void OnTermAndConditionChanged();
-    partial void OnPrivacyPolicyChanging(string value);
-    partial void OnPrivacyPolicyChanged();
+    partial void OnAccountCustomerIDChanging(System.Guid value);
+    partial void OnAccountCustomerIDChanged();
+    partial void OnAccountCustomer_EmailChanging(string value);
+    partial void OnAccountCustomer_EmailChanged();
+    partial void OnAccountCustomer_PasswordChanging(string value);
+    partial void OnAccountCustomer_PasswordChanged();
+    partial void OnAccountCustomer_IDNumberChanging(string value);
+    partial void OnAccountCustomer_IDNumberChanged();
+    partial void OnAccountCustomer_FullNameChanging(string value);
+    partial void OnAccountCustomer_FullNameChanged();
+    partial void OnAccountCustomer_BirthdayChanging(System.Nullable<System.DateTime> value);
+    partial void OnAccountCustomer_BirthdayChanged();
+    partial void OnAccountCustomer_GenderChanging(bool value);
+    partial void OnAccountCustomer_GenderChanged();
+    partial void OnAccountCustomer_AddressChanging(string value);
+    partial void OnAccountCustomer_AddressChanged();
+    partial void OnAccountCustomer_PhoneNumberChanging(string value);
+    partial void OnAccountCustomer_PhoneNumberChanged();
+    partial void OnAccountCustomer_JobChanging(string value);
+    partial void OnAccountCustomer_JobChanged();
     #endregion
 		
-		public tbl_CompanyInfo()
+		public tbl_AccountCustomer()
 		{
+			this._tbl_BusTickets = new EntitySet<tbl_BusTicket>(new Action<tbl_BusTicket>(this.attach_tbl_BusTickets), new Action<tbl_BusTicket>(this.detach_tbl_BusTickets));
 			OnCreated();
 		}
 		
-		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="SmallInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public short id
+		[Column(Storage="_AccountCustomerID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid AccountCustomerID
 		{
 			get
 			{
-				return this._id;
+				return this._AccountCustomerID;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._AccountCustomerID != value))
 				{
-					this.OnidChanging(value);
+					this.OnAccountCustomerIDChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					this._AccountCustomerID = value;
+					this.SendPropertyChanged("AccountCustomerID");
+					this.OnAccountCustomerIDChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AboutUs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string AboutUs
+		[Column(Storage="_AccountCustomer_Email", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string AccountCustomer_Email
 		{
 			get
 			{
-				return this._AboutUs;
+				return this._AccountCustomer_Email;
 			}
 			set
 			{
-				if ((this._AboutUs != value))
+				if ((this._AccountCustomer_Email != value))
 				{
-					this.OnAboutUsChanging(value);
+					this.OnAccountCustomer_EmailChanging(value);
 					this.SendPropertyChanging();
-					this._AboutUs = value;
-					this.SendPropertyChanged("AboutUs");
-					this.OnAboutUsChanged();
+					this._AccountCustomer_Email = value;
+					this.SendPropertyChanged("AccountCustomer_Email");
+					this.OnAccountCustomer_EmailChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_ContactUs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string ContactUs
+		[Column(Storage="_AccountCustomer_Password", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string AccountCustomer_Password
 		{
 			get
 			{
-				return this._ContactUs;
+				return this._AccountCustomer_Password;
 			}
 			set
 			{
-				if ((this._ContactUs != value))
+				if ((this._AccountCustomer_Password != value))
 				{
-					this.OnContactUsChanging(value);
+					this.OnAccountCustomer_PasswordChanging(value);
 					this.SendPropertyChanging();
-					this._ContactUs = value;
-					this.SendPropertyChanged("ContactUs");
-					this.OnContactUsChanged();
+					this._AccountCustomer_Password = value;
+					this.SendPropertyChanged("AccountCustomer_Password");
+					this.OnAccountCustomer_PasswordChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_TermAndCondition", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string TermAndCondition
+		[Column(Storage="_AccountCustomer_IDNumber", DbType="VarChar(12)")]
+		public string AccountCustomer_IDNumber
 		{
 			get
 			{
-				return this._TermAndCondition;
+				return this._AccountCustomer_IDNumber;
 			}
 			set
 			{
-				if ((this._TermAndCondition != value))
+				if ((this._AccountCustomer_IDNumber != value))
 				{
-					this.OnTermAndConditionChanging(value);
+					this.OnAccountCustomer_IDNumberChanging(value);
 					this.SendPropertyChanging();
-					this._TermAndCondition = value;
-					this.SendPropertyChanged("TermAndCondition");
-					this.OnTermAndConditionChanged();
+					this._AccountCustomer_IDNumber = value;
+					this.SendPropertyChanged("AccountCustomer_IDNumber");
+					this.OnAccountCustomer_IDNumberChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_PrivacyPolicy", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string PrivacyPolicy
+		[Column(Storage="_AccountCustomer_FullName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string AccountCustomer_FullName
 		{
 			get
 			{
-				return this._PrivacyPolicy;
+				return this._AccountCustomer_FullName;
 			}
 			set
 			{
-				if ((this._PrivacyPolicy != value))
+				if ((this._AccountCustomer_FullName != value))
 				{
-					this.OnPrivacyPolicyChanging(value);
+					this.OnAccountCustomer_FullNameChanging(value);
 					this.SendPropertyChanging();
-					this._PrivacyPolicy = value;
-					this.SendPropertyChanged("PrivacyPolicy");
-					this.OnPrivacyPolicyChanged();
+					this._AccountCustomer_FullName = value;
+					this.SendPropertyChanged("AccountCustomer_FullName");
+					this.OnAccountCustomer_FullNameChanged();
 				}
+			}
+		}
+		
+		[Column(Storage="_AccountCustomer_Birthday", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AccountCustomer_Birthday
+		{
+			get
+			{
+				return this._AccountCustomer_Birthday;
+			}
+			set
+			{
+				if ((this._AccountCustomer_Birthday != value))
+				{
+					this.OnAccountCustomer_BirthdayChanging(value);
+					this.SendPropertyChanging();
+					this._AccountCustomer_Birthday = value;
+					this.SendPropertyChanged("AccountCustomer_Birthday");
+					this.OnAccountCustomer_BirthdayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AccountCustomer_Gender", DbType="Bit NOT NULL")]
+		public bool AccountCustomer_Gender
+		{
+			get
+			{
+				return this._AccountCustomer_Gender;
+			}
+			set
+			{
+				if ((this._AccountCustomer_Gender != value))
+				{
+					this.OnAccountCustomer_GenderChanging(value);
+					this.SendPropertyChanging();
+					this._AccountCustomer_Gender = value;
+					this.SendPropertyChanged("AccountCustomer_Gender");
+					this.OnAccountCustomer_GenderChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AccountCustomer_Address", DbType="NVarChar(150)")]
+		public string AccountCustomer_Address
+		{
+			get
+			{
+				return this._AccountCustomer_Address;
+			}
+			set
+			{
+				if ((this._AccountCustomer_Address != value))
+				{
+					this.OnAccountCustomer_AddressChanging(value);
+					this.SendPropertyChanging();
+					this._AccountCustomer_Address = value;
+					this.SendPropertyChanged("AccountCustomer_Address");
+					this.OnAccountCustomer_AddressChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AccountCustomer_PhoneNumber", DbType="NVarChar(100)")]
+		public string AccountCustomer_PhoneNumber
+		{
+			get
+			{
+				return this._AccountCustomer_PhoneNumber;
+			}
+			set
+			{
+				if ((this._AccountCustomer_PhoneNumber != value))
+				{
+					this.OnAccountCustomer_PhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._AccountCustomer_PhoneNumber = value;
+					this.SendPropertyChanged("AccountCustomer_PhoneNumber");
+					this.OnAccountCustomer_PhoneNumberChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AccountCustomer_Job", DbType="NVarChar(100)")]
+		public string AccountCustomer_Job
+		{
+			get
+			{
+				return this._AccountCustomer_Job;
+			}
+			set
+			{
+				if ((this._AccountCustomer_Job != value))
+				{
+					this.OnAccountCustomer_JobChanging(value);
+					this.SendPropertyChanging();
+					this._AccountCustomer_Job = value;
+					this.SendPropertyChanged("AccountCustomer_Job");
+					this.OnAccountCustomer_JobChanged();
+				}
+			}
+		}
+		
+		[Association(Name="tbl_AccountCustomer_tbl_BusTicket", Storage="_tbl_BusTickets", ThisKey="AccountCustomerID", OtherKey="Ticket_CustomerID")]
+		public EntitySet<tbl_BusTicket> tbl_BusTickets
+		{
+			get
+			{
+				return this._tbl_BusTickets;
+			}
+			set
+			{
+				this._tbl_BusTickets.Assign(value);
 			}
 		}
 		
@@ -306,143 +536,17 @@ namespace onlinebus.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
-	
-	[Table(Name="dbo.tbl_Roles")]
-	public partial class tbl_Role : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _Role_ID;
-		
-		private string _Role_Name;
-		
-		private string _Role_Alias;
-		
-		private EntitySet<tbl_Administrator> _tbl_Administrators;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRole_IDChanging(System.Guid value);
-    partial void OnRole_IDChanged();
-    partial void OnRole_NameChanging(string value);
-    partial void OnRole_NameChanged();
-    partial void OnRole_AliasChanging(string value);
-    partial void OnRole_AliasChanged();
-    #endregion
-		
-		public tbl_Role()
-		{
-			this._tbl_Administrators = new EntitySet<tbl_Administrator>(new Action<tbl_Administrator>(this.attach_tbl_Administrators), new Action<tbl_Administrator>(this.detach_tbl_Administrators));
-			OnCreated();
-		}
-		
-		[Column(Storage="_Role_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid Role_ID
-		{
-			get
-			{
-				return this._Role_ID;
-			}
-			set
-			{
-				if ((this._Role_ID != value))
-				{
-					this.OnRole_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Role_ID = value;
-					this.SendPropertyChanged("Role_ID");
-					this.OnRole_IDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Role_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Role_Name
-		{
-			get
-			{
-				return this._Role_Name;
-			}
-			set
-			{
-				if ((this._Role_Name != value))
-				{
-					this.OnRole_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Role_Name = value;
-					this.SendPropertyChanged("Role_Name");
-					this.OnRole_NameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Role_Alias", DbType="NChar(5) NOT NULL", CanBeNull=false)]
-		public string Role_Alias
-		{
-			get
-			{
-				return this._Role_Alias;
-			}
-			set
-			{
-				if ((this._Role_Alias != value))
-				{
-					this.OnRole_AliasChanging(value);
-					this.SendPropertyChanging();
-					this._Role_Alias = value;
-					this.SendPropertyChanged("Role_Alias");
-					this.OnRole_AliasChanged();
-				}
-			}
-		}
-		
-		[Association(Name="tbl_Role_tbl_Administrator", Storage="_tbl_Administrators", ThisKey="Role_ID", OtherKey="Admin_RoleID")]
-		public EntitySet<tbl_Administrator> tbl_Administrators
-		{
-			get
-			{
-				return this._tbl_Administrators;
-			}
-			set
-			{
-				this._tbl_Administrators.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tbl_Administrators(tbl_Administrator entity)
+		private void attach_tbl_BusTickets(tbl_BusTicket entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbl_Role = this;
+			entity.tbl_AccountCustomer = this;
 		}
 		
-		private void detach_tbl_Administrators(tbl_Administrator entity)
+		private void detach_tbl_BusTickets(tbl_BusTicket entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbl_Role = null;
+			entity.tbl_AccountCustomer = null;
 		}
 	}
 	
@@ -837,211 +941,1099 @@ namespace onlinebus.Models
 		}
 	}
 	
-	[Table(Name="dbo.tbl_Services")]
-	public partial class tbl_Service : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.tbl_BusRoute")]
+	public partial class tbl_BusRoute : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Guid _Services_ID;
+		private int _BusRoute_CityStartID;
 		
-		private string _Services_Title;
+		private int _BusRoute_CityEndID;
 		
-		private System.DateTime _Services_Release;
+		private int _BusRoute_BusTypeID;
 		
-		private System.Nullable<System.DateTime> _Services_Edit;
+		private short _BusRoute_StartTime;
 		
-		private string _Services_Content;
+		private short _BusRoute_EstimateTime;
 		
-		private string _Services_Image;
+		private int _BusRoute_Length;
 		
-		private int _Services_ReadCount;
+		private int _BusRoute_DayOfWeek;
 		
-		private bool _Services_Active;
+		private decimal _BusRoute_Cost;
+		
+		private EntitySet<tbl_BusTicket> _tbl_BusTickets;
+		
+		private EntityRef<tbl_BusType> _tbl_BusType;
+		
+		private EntityRef<tbl_City> _tbl_City;
+		
+		private EntityRef<tbl_City> _tbl_City1;
+		
+		private EntityRef<tbl_DayOfWeek> _tbl_DayOfWeek;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnServices_IDChanging(System.Guid value);
-    partial void OnServices_IDChanged();
-    partial void OnServices_TitleChanging(string value);
-    partial void OnServices_TitleChanged();
-    partial void OnServices_ReleaseChanging(System.DateTime value);
-    partial void OnServices_ReleaseChanged();
-    partial void OnServices_EditChanging(System.Nullable<System.DateTime> value);
-    partial void OnServices_EditChanged();
-    partial void OnServices_ContentChanging(string value);
-    partial void OnServices_ContentChanged();
-    partial void OnServices_ImageChanging(string value);
-    partial void OnServices_ImageChanged();
-    partial void OnServices_ReadCountChanging(int value);
-    partial void OnServices_ReadCountChanged();
-    partial void OnServices_ActiveChanging(bool value);
-    partial void OnServices_ActiveChanged();
+    partial void OnBusRoute_CityStartIDChanging(int value);
+    partial void OnBusRoute_CityStartIDChanged();
+    partial void OnBusRoute_CityEndIDChanging(int value);
+    partial void OnBusRoute_CityEndIDChanged();
+    partial void OnBusRoute_BusTypeIDChanging(int value);
+    partial void OnBusRoute_BusTypeIDChanged();
+    partial void OnBusRoute_StartTimeChanging(short value);
+    partial void OnBusRoute_StartTimeChanged();
+    partial void OnBusRoute_EstimateTimeChanging(short value);
+    partial void OnBusRoute_EstimateTimeChanged();
+    partial void OnBusRoute_LengthChanging(int value);
+    partial void OnBusRoute_LengthChanged();
+    partial void OnBusRoute_DayOfWeekChanging(int value);
+    partial void OnBusRoute_DayOfWeekChanged();
+    partial void OnBusRoute_CostChanging(decimal value);
+    partial void OnBusRoute_CostChanged();
     #endregion
 		
-		public tbl_Service()
+		public tbl_BusRoute()
+		{
+			this._tbl_BusTickets = new EntitySet<tbl_BusTicket>(new Action<tbl_BusTicket>(this.attach_tbl_BusTickets), new Action<tbl_BusTicket>(this.detach_tbl_BusTickets));
+			this._tbl_BusType = default(EntityRef<tbl_BusType>);
+			this._tbl_City = default(EntityRef<tbl_City>);
+			this._tbl_City1 = default(EntityRef<tbl_City>);
+			this._tbl_DayOfWeek = default(EntityRef<tbl_DayOfWeek>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_BusRoute_CityStartID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int BusRoute_CityStartID
+		{
+			get
+			{
+				return this._BusRoute_CityStartID;
+			}
+			set
+			{
+				if ((this._BusRoute_CityStartID != value))
+				{
+					if (this._tbl_City1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBusRoute_CityStartIDChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_CityStartID = value;
+					this.SendPropertyChanged("BusRoute_CityStartID");
+					this.OnBusRoute_CityStartIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_CityEndID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int BusRoute_CityEndID
+		{
+			get
+			{
+				return this._BusRoute_CityEndID;
+			}
+			set
+			{
+				if ((this._BusRoute_CityEndID != value))
+				{
+					if (this._tbl_City.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBusRoute_CityEndIDChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_CityEndID = value;
+					this.SendPropertyChanged("BusRoute_CityEndID");
+					this.OnBusRoute_CityEndIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_BusTypeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int BusRoute_BusTypeID
+		{
+			get
+			{
+				return this._BusRoute_BusTypeID;
+			}
+			set
+			{
+				if ((this._BusRoute_BusTypeID != value))
+				{
+					if (this._tbl_BusType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBusRoute_BusTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_BusTypeID = value;
+					this.SendPropertyChanged("BusRoute_BusTypeID");
+					this.OnBusRoute_BusTypeIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_StartTime", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short BusRoute_StartTime
+		{
+			get
+			{
+				return this._BusRoute_StartTime;
+			}
+			set
+			{
+				if ((this._BusRoute_StartTime != value))
+				{
+					this.OnBusRoute_StartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_StartTime = value;
+					this.SendPropertyChanged("BusRoute_StartTime");
+					this.OnBusRoute_StartTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_EstimateTime", DbType="SmallInt NOT NULL")]
+		public short BusRoute_EstimateTime
+		{
+			get
+			{
+				return this._BusRoute_EstimateTime;
+			}
+			set
+			{
+				if ((this._BusRoute_EstimateTime != value))
+				{
+					this.OnBusRoute_EstimateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_EstimateTime = value;
+					this.SendPropertyChanged("BusRoute_EstimateTime");
+					this.OnBusRoute_EstimateTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_Length", DbType="Int NOT NULL")]
+		public int BusRoute_Length
+		{
+			get
+			{
+				return this._BusRoute_Length;
+			}
+			set
+			{
+				if ((this._BusRoute_Length != value))
+				{
+					this.OnBusRoute_LengthChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_Length = value;
+					this.SendPropertyChanged("BusRoute_Length");
+					this.OnBusRoute_LengthChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_DayOfWeek", DbType="Int NOT NULL")]
+		public int BusRoute_DayOfWeek
+		{
+			get
+			{
+				return this._BusRoute_DayOfWeek;
+			}
+			set
+			{
+				if ((this._BusRoute_DayOfWeek != value))
+				{
+					if (this._tbl_DayOfWeek.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBusRoute_DayOfWeekChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_DayOfWeek = value;
+					this.SendPropertyChanged("BusRoute_DayOfWeek");
+					this.OnBusRoute_DayOfWeekChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_Cost", DbType="Money NOT NULL")]
+		public decimal BusRoute_Cost
+		{
+			get
+			{
+				return this._BusRoute_Cost;
+			}
+			set
+			{
+				if ((this._BusRoute_Cost != value))
+				{
+					this.OnBusRoute_CostChanging(value);
+					this.SendPropertyChanging();
+					this._BusRoute_Cost = value;
+					this.SendPropertyChanged("BusRoute_Cost");
+					this.OnBusRoute_CostChanged();
+				}
+			}
+		}
+		
+		[Association(Name="tbl_BusRoute_tbl_BusTicket", Storage="_tbl_BusTickets", ThisKey="BusRoute_CityStartID,BusRoute_CityEndID,BusRoute_BusTypeID,BusRoute_StartTime", OtherKey="Ticket_CityStartID,Ticket_CityEndID,Ticket_BusTypeID,Ticket_BusStartTime")]
+		public EntitySet<tbl_BusTicket> tbl_BusTickets
+		{
+			get
+			{
+				return this._tbl_BusTickets;
+			}
+			set
+			{
+				this._tbl_BusTickets.Assign(value);
+			}
+		}
+		
+		[Association(Name="tbl_BusType_tbl_BusRoute", Storage="_tbl_BusType", ThisKey="BusRoute_BusTypeID", OtherKey="BusType_ID", IsForeignKey=true)]
+		public tbl_BusType tbl_BusType
+		{
+			get
+			{
+				return this._tbl_BusType.Entity;
+			}
+			set
+			{
+				tbl_BusType previousValue = this._tbl_BusType.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_BusType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_BusType.Entity = null;
+						previousValue.tbl_BusRoutes.Remove(this);
+					}
+					this._tbl_BusType.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_BusRoutes.Add(this);
+						this._BusRoute_BusTypeID = value.BusType_ID;
+					}
+					else
+					{
+						this._BusRoute_BusTypeID = default(int);
+					}
+					this.SendPropertyChanged("tbl_BusType");
+				}
+			}
+		}
+		
+		[Association(Name="tbl_City_tbl_BusRoute", Storage="_tbl_City", ThisKey="BusRoute_CityEndID", OtherKey="City_ID", IsForeignKey=true)]
+		public tbl_City tbl_City
+		{
+			get
+			{
+				return this._tbl_City.Entity;
+			}
+			set
+			{
+				tbl_City previousValue = this._tbl_City.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_City.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_City.Entity = null;
+						previousValue.tbl_BusRoutes.Remove(this);
+					}
+					this._tbl_City.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_BusRoutes.Add(this);
+						this._BusRoute_CityEndID = value.City_ID;
+					}
+					else
+					{
+						this._BusRoute_CityEndID = default(int);
+					}
+					this.SendPropertyChanged("tbl_City");
+				}
+			}
+		}
+		
+		[Association(Name="tbl_City_tbl_BusRoute1", Storage="_tbl_City1", ThisKey="BusRoute_CityStartID", OtherKey="City_ID", IsForeignKey=true)]
+		public tbl_City tbl_City1
+		{
+			get
+			{
+				return this._tbl_City1.Entity;
+			}
+			set
+			{
+				tbl_City previousValue = this._tbl_City1.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_City1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_City1.Entity = null;
+						previousValue.tbl_BusRoutes1.Remove(this);
+					}
+					this._tbl_City1.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_BusRoutes1.Add(this);
+						this._BusRoute_CityStartID = value.City_ID;
+					}
+					else
+					{
+						this._BusRoute_CityStartID = default(int);
+					}
+					this.SendPropertyChanged("tbl_City1");
+				}
+			}
+		}
+		
+		[Association(Name="tbl_DayOfWeek_tbl_BusRoute", Storage="_tbl_DayOfWeek", ThisKey="BusRoute_DayOfWeek", OtherKey="DoW_ID", IsForeignKey=true)]
+		public tbl_DayOfWeek tbl_DayOfWeek
+		{
+			get
+			{
+				return this._tbl_DayOfWeek.Entity;
+			}
+			set
+			{
+				tbl_DayOfWeek previousValue = this._tbl_DayOfWeek.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_DayOfWeek.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_DayOfWeek.Entity = null;
+						previousValue.tbl_BusRoutes.Remove(this);
+					}
+					this._tbl_DayOfWeek.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_BusRoutes.Add(this);
+						this._BusRoute_DayOfWeek = value.DoW_ID;
+					}
+					else
+					{
+						this._BusRoute_DayOfWeek = default(int);
+					}
+					this.SendPropertyChanged("tbl_DayOfWeek");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_BusTickets(tbl_BusTicket entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_BusRoute = this;
+		}
+		
+		private void detach_tbl_BusTickets(tbl_BusTicket entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_BusRoute = null;
+		}
+	}
+	
+	[Table(Name="dbo.tbl_BusType")]
+	public partial class tbl_BusType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _BusType_ID;
+		
+		private string _BusType_Name;
+		
+		private short _BusType_Seat;
+		
+		private EntitySet<tbl_BusRoute> _tbl_BusRoutes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBusType_IDChanging(int value);
+    partial void OnBusType_IDChanged();
+    partial void OnBusType_NameChanging(string value);
+    partial void OnBusType_NameChanged();
+    partial void OnBusType_SeatChanging(short value);
+    partial void OnBusType_SeatChanged();
+    #endregion
+		
+		public tbl_BusType()
+		{
+			this._tbl_BusRoutes = new EntitySet<tbl_BusRoute>(new Action<tbl_BusRoute>(this.attach_tbl_BusRoutes), new Action<tbl_BusRoute>(this.detach_tbl_BusRoutes));
+			OnCreated();
+		}
+		
+		[Column(Storage="_BusType_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int BusType_ID
+		{
+			get
+			{
+				return this._BusType_ID;
+			}
+			set
+			{
+				if ((this._BusType_ID != value))
+				{
+					this.OnBusType_IDChanging(value);
+					this.SendPropertyChanging();
+					this._BusType_ID = value;
+					this.SendPropertyChanged("BusType_ID");
+					this.OnBusType_IDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusType_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusType_Name
+		{
+			get
+			{
+				return this._BusType_Name;
+			}
+			set
+			{
+				if ((this._BusType_Name != value))
+				{
+					this.OnBusType_NameChanging(value);
+					this.SendPropertyChanging();
+					this._BusType_Name = value;
+					this.SendPropertyChanged("BusType_Name");
+					this.OnBusType_NameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BusType_Seat", DbType="SmallInt NOT NULL")]
+		public short BusType_Seat
+		{
+			get
+			{
+				return this._BusType_Seat;
+			}
+			set
+			{
+				if ((this._BusType_Seat != value))
+				{
+					this.OnBusType_SeatChanging(value);
+					this.SendPropertyChanging();
+					this._BusType_Seat = value;
+					this.SendPropertyChanged("BusType_Seat");
+					this.OnBusType_SeatChanged();
+				}
+			}
+		}
+		
+		[Association(Name="tbl_BusType_tbl_BusRoute", Storage="_tbl_BusRoutes", ThisKey="BusType_ID", OtherKey="BusRoute_BusTypeID")]
+		public EntitySet<tbl_BusRoute> tbl_BusRoutes
+		{
+			get
+			{
+				return this._tbl_BusRoutes;
+			}
+			set
+			{
+				this._tbl_BusRoutes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_BusRoutes(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_BusType = this;
+		}
+		
+		private void detach_tbl_BusRoutes(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_BusType = null;
+		}
+	}
+	
+	[Table(Name="dbo.tbl_City")]
+	public partial class tbl_City : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _City_ID;
+		
+		private string _City_Name;
+		
+		private EntitySet<tbl_BusRoute> _tbl_BusRoutes;
+		
+		private EntitySet<tbl_BusRoute> _tbl_BusRoutes1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCity_IDChanging(int value);
+    partial void OnCity_IDChanged();
+    partial void OnCity_NameChanging(string value);
+    partial void OnCity_NameChanged();
+    #endregion
+		
+		public tbl_City()
+		{
+			this._tbl_BusRoutes = new EntitySet<tbl_BusRoute>(new Action<tbl_BusRoute>(this.attach_tbl_BusRoutes), new Action<tbl_BusRoute>(this.detach_tbl_BusRoutes));
+			this._tbl_BusRoutes1 = new EntitySet<tbl_BusRoute>(new Action<tbl_BusRoute>(this.attach_tbl_BusRoutes1), new Action<tbl_BusRoute>(this.detach_tbl_BusRoutes1));
+			OnCreated();
+		}
+		
+		[Column(Storage="_City_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int City_ID
+		{
+			get
+			{
+				return this._City_ID;
+			}
+			set
+			{
+				if ((this._City_ID != value))
+				{
+					this.OnCity_IDChanging(value);
+					this.SendPropertyChanging();
+					this._City_ID = value;
+					this.SendPropertyChanged("City_ID");
+					this.OnCity_IDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_City_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string City_Name
+		{
+			get
+			{
+				return this._City_Name;
+			}
+			set
+			{
+				if ((this._City_Name != value))
+				{
+					this.OnCity_NameChanging(value);
+					this.SendPropertyChanging();
+					this._City_Name = value;
+					this.SendPropertyChanged("City_Name");
+					this.OnCity_NameChanged();
+				}
+			}
+		}
+		
+		[Association(Name="tbl_City_tbl_BusRoute", Storage="_tbl_BusRoutes", ThisKey="City_ID", OtherKey="BusRoute_CityEndID")]
+		public EntitySet<tbl_BusRoute> tbl_BusRoutes
+		{
+			get
+			{
+				return this._tbl_BusRoutes;
+			}
+			set
+			{
+				this._tbl_BusRoutes.Assign(value);
+			}
+		}
+		
+		[Association(Name="tbl_City_tbl_BusRoute1", Storage="_tbl_BusRoutes1", ThisKey="City_ID", OtherKey="BusRoute_CityStartID")]
+		public EntitySet<tbl_BusRoute> tbl_BusRoutes1
+		{
+			get
+			{
+				return this._tbl_BusRoutes1;
+			}
+			set
+			{
+				this._tbl_BusRoutes1.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_BusRoutes(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_City = this;
+		}
+		
+		private void detach_tbl_BusRoutes(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_City = null;
+		}
+		
+		private void attach_tbl_BusRoutes1(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_City1 = this;
+		}
+		
+		private void detach_tbl_BusRoutes1(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_City1 = null;
+		}
+	}
+	
+	[Table(Name="dbo.tbl_DayOfWeek")]
+	public partial class tbl_DayOfWeek : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DoW_ID;
+		
+		private bool _DoW_Sunday;
+		
+		private bool _DoW_Monday;
+		
+		private bool _DoW_Tuesday;
+		
+		private bool _DoW_Wednesday;
+		
+		private bool _DoW_Thursday;
+		
+		private bool _DoW_Friday;
+		
+		private bool _DoW_Saturday;
+		
+		private EntitySet<tbl_BusRoute> _tbl_BusRoutes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDoW_IDChanging(int value);
+    partial void OnDoW_IDChanged();
+    partial void OnDoW_SundayChanging(bool value);
+    partial void OnDoW_SundayChanged();
+    partial void OnDoW_MondayChanging(bool value);
+    partial void OnDoW_MondayChanged();
+    partial void OnDoW_TuesdayChanging(bool value);
+    partial void OnDoW_TuesdayChanged();
+    partial void OnDoW_WednesdayChanging(bool value);
+    partial void OnDoW_WednesdayChanged();
+    partial void OnDoW_ThursdayChanging(bool value);
+    partial void OnDoW_ThursdayChanged();
+    partial void OnDoW_FridayChanging(bool value);
+    partial void OnDoW_FridayChanged();
+    partial void OnDoW_SaturdayChanging(bool value);
+    partial void OnDoW_SaturdayChanged();
+    #endregion
+		
+		public tbl_DayOfWeek()
+		{
+			this._tbl_BusRoutes = new EntitySet<tbl_BusRoute>(new Action<tbl_BusRoute>(this.attach_tbl_BusRoutes), new Action<tbl_BusRoute>(this.detach_tbl_BusRoutes));
+			OnCreated();
+		}
+		
+		[Column(Storage="_DoW_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DoW_ID
+		{
+			get
+			{
+				return this._DoW_ID;
+			}
+			set
+			{
+				if ((this._DoW_ID != value))
+				{
+					this.OnDoW_IDChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_ID = value;
+					this.SendPropertyChanged("DoW_ID");
+					this.OnDoW_IDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DoW_Sunday", DbType="Bit NOT NULL")]
+		public bool DoW_Sunday
+		{
+			get
+			{
+				return this._DoW_Sunday;
+			}
+			set
+			{
+				if ((this._DoW_Sunday != value))
+				{
+					this.OnDoW_SundayChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_Sunday = value;
+					this.SendPropertyChanged("DoW_Sunday");
+					this.OnDoW_SundayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DoW_Monday", DbType="Bit NOT NULL")]
+		public bool DoW_Monday
+		{
+			get
+			{
+				return this._DoW_Monday;
+			}
+			set
+			{
+				if ((this._DoW_Monday != value))
+				{
+					this.OnDoW_MondayChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_Monday = value;
+					this.SendPropertyChanged("DoW_Monday");
+					this.OnDoW_MondayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DoW_Tuesday", DbType="Bit NOT NULL")]
+		public bool DoW_Tuesday
+		{
+			get
+			{
+				return this._DoW_Tuesday;
+			}
+			set
+			{
+				if ((this._DoW_Tuesday != value))
+				{
+					this.OnDoW_TuesdayChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_Tuesday = value;
+					this.SendPropertyChanged("DoW_Tuesday");
+					this.OnDoW_TuesdayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DoW_Wednesday", DbType="Bit NOT NULL")]
+		public bool DoW_Wednesday
+		{
+			get
+			{
+				return this._DoW_Wednesday;
+			}
+			set
+			{
+				if ((this._DoW_Wednesday != value))
+				{
+					this.OnDoW_WednesdayChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_Wednesday = value;
+					this.SendPropertyChanged("DoW_Wednesday");
+					this.OnDoW_WednesdayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DoW_Thursday", DbType="Bit NOT NULL")]
+		public bool DoW_Thursday
+		{
+			get
+			{
+				return this._DoW_Thursday;
+			}
+			set
+			{
+				if ((this._DoW_Thursday != value))
+				{
+					this.OnDoW_ThursdayChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_Thursday = value;
+					this.SendPropertyChanged("DoW_Thursday");
+					this.OnDoW_ThursdayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DoW_Friday", DbType="Bit NOT NULL")]
+		public bool DoW_Friday
+		{
+			get
+			{
+				return this._DoW_Friday;
+			}
+			set
+			{
+				if ((this._DoW_Friday != value))
+				{
+					this.OnDoW_FridayChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_Friday = value;
+					this.SendPropertyChanged("DoW_Friday");
+					this.OnDoW_FridayChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DoW_Saturday", DbType="Bit NOT NULL")]
+		public bool DoW_Saturday
+		{
+			get
+			{
+				return this._DoW_Saturday;
+			}
+			set
+			{
+				if ((this._DoW_Saturday != value))
+				{
+					this.OnDoW_SaturdayChanging(value);
+					this.SendPropertyChanging();
+					this._DoW_Saturday = value;
+					this.SendPropertyChanged("DoW_Saturday");
+					this.OnDoW_SaturdayChanged();
+				}
+			}
+		}
+		
+		[Association(Name="tbl_DayOfWeek_tbl_BusRoute", Storage="_tbl_BusRoutes", ThisKey="DoW_ID", OtherKey="BusRoute_DayOfWeek")]
+		public EntitySet<tbl_BusRoute> tbl_BusRoutes
+		{
+			get
+			{
+				return this._tbl_BusRoutes;
+			}
+			set
+			{
+				this._tbl_BusRoutes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_BusRoutes(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DayOfWeek = this;
+		}
+		
+		private void detach_tbl_BusRoutes(tbl_BusRoute entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DayOfWeek = null;
+		}
+	}
+	
+	[Table(Name="dbo.tbl_CompanyInfo")]
+	public partial class tbl_CompanyInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private short _id;
+		
+		private string _AboutUs;
+		
+		private string _ContactUs;
+		
+		private string _TermAndCondition;
+		
+		private string _PrivacyPolicy;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(short value);
+    partial void OnidChanged();
+    partial void OnAboutUsChanging(string value);
+    partial void OnAboutUsChanged();
+    partial void OnContactUsChanging(string value);
+    partial void OnContactUsChanged();
+    partial void OnTermAndConditionChanging(string value);
+    partial void OnTermAndConditionChanged();
+    partial void OnPrivacyPolicyChanging(string value);
+    partial void OnPrivacyPolicyChanged();
+    #endregion
+		
+		public tbl_CompanyInfo()
 		{
 			OnCreated();
 		}
 		
-		[Column(Storage="_Services_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid Services_ID
+		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="SmallInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public short id
 		{
 			get
 			{
-				return this._Services_ID;
+				return this._id;
 			}
 			set
 			{
-				if ((this._Services_ID != value))
+				if ((this._id != value))
 				{
-					this.OnServices_IDChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._Services_ID = value;
-					this.SendPropertyChanged("Services_ID");
-					this.OnServices_IDChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Services_Title", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Services_Title
+		[Column(Storage="_AboutUs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string AboutUs
 		{
 			get
 			{
-				return this._Services_Title;
+				return this._AboutUs;
 			}
 			set
 			{
-				if ((this._Services_Title != value))
+				if ((this._AboutUs != value))
 				{
-					this.OnServices_TitleChanging(value);
+					this.OnAboutUsChanging(value);
 					this.SendPropertyChanging();
-					this._Services_Title = value;
-					this.SendPropertyChanged("Services_Title");
-					this.OnServices_TitleChanged();
+					this._AboutUs = value;
+					this.SendPropertyChanged("AboutUs");
+					this.OnAboutUsChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Services_Release", DbType="DateTime NOT NULL")]
-		public System.DateTime Services_Release
+		[Column(Storage="_ContactUs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string ContactUs
 		{
 			get
 			{
-				return this._Services_Release;
+				return this._ContactUs;
 			}
 			set
 			{
-				if ((this._Services_Release != value))
+				if ((this._ContactUs != value))
 				{
-					this.OnServices_ReleaseChanging(value);
+					this.OnContactUsChanging(value);
 					this.SendPropertyChanging();
-					this._Services_Release = value;
-					this.SendPropertyChanged("Services_Release");
-					this.OnServices_ReleaseChanged();
+					this._ContactUs = value;
+					this.SendPropertyChanged("ContactUs");
+					this.OnContactUsChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Services_Edit", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Services_Edit
+		[Column(Storage="_TermAndCondition", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string TermAndCondition
 		{
 			get
 			{
-				return this._Services_Edit;
+				return this._TermAndCondition;
 			}
 			set
 			{
-				if ((this._Services_Edit != value))
+				if ((this._TermAndCondition != value))
 				{
-					this.OnServices_EditChanging(value);
+					this.OnTermAndConditionChanging(value);
 					this.SendPropertyChanging();
-					this._Services_Edit = value;
-					this.SendPropertyChanged("Services_Edit");
-					this.OnServices_EditChanged();
+					this._TermAndCondition = value;
+					this.SendPropertyChanged("TermAndCondition");
+					this.OnTermAndConditionChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Services_Content", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Services_Content
+		[Column(Storage="_PrivacyPolicy", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string PrivacyPolicy
 		{
 			get
 			{
-				return this._Services_Content;
+				return this._PrivacyPolicy;
 			}
 			set
 			{
-				if ((this._Services_Content != value))
+				if ((this._PrivacyPolicy != value))
 				{
-					this.OnServices_ContentChanging(value);
+					this.OnPrivacyPolicyChanging(value);
 					this.SendPropertyChanging();
-					this._Services_Content = value;
-					this.SendPropertyChanged("Services_Content");
-					this.OnServices_ContentChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Services_Image", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string Services_Image
-		{
-			get
-			{
-				return this._Services_Image;
-			}
-			set
-			{
-				if ((this._Services_Image != value))
-				{
-					this.OnServices_ImageChanging(value);
-					this.SendPropertyChanging();
-					this._Services_Image = value;
-					this.SendPropertyChanged("Services_Image");
-					this.OnServices_ImageChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Services_ReadCount", DbType="Int NOT NULL")]
-		public int Services_ReadCount
-		{
-			get
-			{
-				return this._Services_ReadCount;
-			}
-			set
-			{
-				if ((this._Services_ReadCount != value))
-				{
-					this.OnServices_ReadCountChanging(value);
-					this.SendPropertyChanging();
-					this._Services_ReadCount = value;
-					this.SendPropertyChanged("Services_ReadCount");
-					this.OnServices_ReadCountChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Services_Active", DbType="Bit NOT NULL")]
-		public bool Services_Active
-		{
-			get
-			{
-				return this._Services_Active;
-			}
-			set
-			{
-				if ((this._Services_Active != value))
-				{
-					this.OnServices_ActiveChanging(value);
-					this.SendPropertyChanging();
-					this._Services_Active = value;
-					this.SendPropertyChanged("Services_Active");
-					this.OnServices_ActiveChanged();
+					this._PrivacyPolicy = value;
+					this.SendPropertyChanged("PrivacyPolicy");
+					this.OnPrivacyPolicyChanged();
 				}
 			}
 		}
@@ -1297,259 +2289,861 @@ namespace onlinebus.Models
 		}
 	}
 	
-	[Table(Name="dbo.tbl_AccountCustomer")]
-	public partial class tbl_AccountCustomer : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.tbl_Roles")]
+	public partial class tbl_Role : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _AccountCustomerID;
+		private System.Guid _Role_ID;
 		
-		private string _AccountCustomer_Email;
+		private string _Role_Name;
 		
-		private string _AccountCustomer_Password;
+		private string _Role_Alias;
 		
-		private string _AccountCustomer_IDNumber;
-		
-		private string _AccountCustomer_FullName;
-		
-		private System.Nullable<System.DateTime> _AccountCustomer_Birthday;
-		
-		private bool _AccountCustomer_Gender;
-		
-		private string _AccountCustomer_Address;
-		
-		private string _AccountCustomer_PhoneNumber;
-		
-		private string _AccountCustomer_Job;
+		private EntitySet<tbl_Administrator> _tbl_Administrators;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnAccountCustomerIDChanging(int value);
-    partial void OnAccountCustomerIDChanged();
-    partial void OnAccountCustomer_EmailChanging(string value);
-    partial void OnAccountCustomer_EmailChanged();
-    partial void OnAccountCustomer_PasswordChanging(string value);
-    partial void OnAccountCustomer_PasswordChanged();
-    partial void OnAccountCustomer_IDNumberChanging(string value);
-    partial void OnAccountCustomer_IDNumberChanged();
-    partial void OnAccountCustomer_FullNameChanging(string value);
-    partial void OnAccountCustomer_FullNameChanged();
-    partial void OnAccountCustomer_BirthdayChanging(System.Nullable<System.DateTime> value);
-    partial void OnAccountCustomer_BirthdayChanged();
-    partial void OnAccountCustomer_GenderChanging(bool value);
-    partial void OnAccountCustomer_GenderChanged();
-    partial void OnAccountCustomer_AddressChanging(string value);
-    partial void OnAccountCustomer_AddressChanged();
-    partial void OnAccountCustomer_PhoneNumberChanging(string value);
-    partial void OnAccountCustomer_PhoneNumberChanged();
-    partial void OnAccountCustomer_JobChanging(string value);
-    partial void OnAccountCustomer_JobChanged();
+    partial void OnRole_IDChanging(System.Guid value);
+    partial void OnRole_IDChanged();
+    partial void OnRole_NameChanging(string value);
+    partial void OnRole_NameChanged();
+    partial void OnRole_AliasChanging(string value);
+    partial void OnRole_AliasChanged();
     #endregion
 		
-		public tbl_AccountCustomer()
+		public tbl_Role()
+		{
+			this._tbl_Administrators = new EntitySet<tbl_Administrator>(new Action<tbl_Administrator>(this.attach_tbl_Administrators), new Action<tbl_Administrator>(this.detach_tbl_Administrators));
+			OnCreated();
+		}
+		
+		[Column(Storage="_Role_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Role_ID
+		{
+			get
+			{
+				return this._Role_ID;
+			}
+			set
+			{
+				if ((this._Role_ID != value))
+				{
+					this.OnRole_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Role_ID = value;
+					this.SendPropertyChanged("Role_ID");
+					this.OnRole_IDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Role_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Role_Name
+		{
+			get
+			{
+				return this._Role_Name;
+			}
+			set
+			{
+				if ((this._Role_Name != value))
+				{
+					this.OnRole_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Role_Name = value;
+					this.SendPropertyChanged("Role_Name");
+					this.OnRole_NameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Role_Alias", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string Role_Alias
+		{
+			get
+			{
+				return this._Role_Alias;
+			}
+			set
+			{
+				if ((this._Role_Alias != value))
+				{
+					this.OnRole_AliasChanging(value);
+					this.SendPropertyChanging();
+					this._Role_Alias = value;
+					this.SendPropertyChanged("Role_Alias");
+					this.OnRole_AliasChanged();
+				}
+			}
+		}
+		
+		[Association(Name="tbl_Role_tbl_Administrator", Storage="_tbl_Administrators", ThisKey="Role_ID", OtherKey="Admin_RoleID")]
+		public EntitySet<tbl_Administrator> tbl_Administrators
+		{
+			get
+			{
+				return this._tbl_Administrators;
+			}
+			set
+			{
+				this._tbl_Administrators.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_Administrators(tbl_Administrator entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Role = this;
+		}
+		
+		private void detach_tbl_Administrators(tbl_Administrator entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Role = null;
+		}
+	}
+	
+	[Table(Name="dbo.tbl_Services")]
+	public partial class tbl_Service : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Services_ID;
+		
+		private string _Services_Title;
+		
+		private System.DateTime _Services_Release;
+		
+		private System.Nullable<System.DateTime> _Services_Edit;
+		
+		private string _Services_Content;
+		
+		private string _Services_Image;
+		
+		private int _Services_ReadCount;
+		
+		private bool _Services_Active;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnServices_IDChanging(System.Guid value);
+    partial void OnServices_IDChanged();
+    partial void OnServices_TitleChanging(string value);
+    partial void OnServices_TitleChanged();
+    partial void OnServices_ReleaseChanging(System.DateTime value);
+    partial void OnServices_ReleaseChanged();
+    partial void OnServices_EditChanging(System.Nullable<System.DateTime> value);
+    partial void OnServices_EditChanged();
+    partial void OnServices_ContentChanging(string value);
+    partial void OnServices_ContentChanged();
+    partial void OnServices_ImageChanging(string value);
+    partial void OnServices_ImageChanged();
+    partial void OnServices_ReadCountChanging(int value);
+    partial void OnServices_ReadCountChanged();
+    partial void OnServices_ActiveChanging(bool value);
+    partial void OnServices_ActiveChanged();
+    #endregion
+		
+		public tbl_Service()
 		{
 			OnCreated();
 		}
 		
-		[Column(Storage="_AccountCustomerID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int AccountCustomerID
+		[Column(Storage="_Services_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Services_ID
 		{
 			get
 			{
-				return this._AccountCustomerID;
+				return this._Services_ID;
 			}
 			set
 			{
-				if ((this._AccountCustomerID != value))
+				if ((this._Services_ID != value))
 				{
-					this.OnAccountCustomerIDChanging(value);
+					this.OnServices_IDChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomerID = value;
-					this.SendPropertyChanged("AccountCustomerID");
-					this.OnAccountCustomerIDChanged();
+					this._Services_ID = value;
+					this.SendPropertyChanged("Services_ID");
+					this.OnServices_IDChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_Email", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string AccountCustomer_Email
+		[Column(Storage="_Services_Title", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Services_Title
 		{
 			get
 			{
-				return this._AccountCustomer_Email;
+				return this._Services_Title;
 			}
 			set
 			{
-				if ((this._AccountCustomer_Email != value))
+				if ((this._Services_Title != value))
 				{
-					this.OnAccountCustomer_EmailChanging(value);
+					this.OnServices_TitleChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_Email = value;
-					this.SendPropertyChanged("AccountCustomer_Email");
-					this.OnAccountCustomer_EmailChanged();
+					this._Services_Title = value;
+					this.SendPropertyChanged("Services_Title");
+					this.OnServices_TitleChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_Password", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string AccountCustomer_Password
+		[Column(Storage="_Services_Release", DbType="DateTime NOT NULL")]
+		public System.DateTime Services_Release
 		{
 			get
 			{
-				return this._AccountCustomer_Password;
+				return this._Services_Release;
 			}
 			set
 			{
-				if ((this._AccountCustomer_Password != value))
+				if ((this._Services_Release != value))
 				{
-					this.OnAccountCustomer_PasswordChanging(value);
+					this.OnServices_ReleaseChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_Password = value;
-					this.SendPropertyChanged("AccountCustomer_Password");
-					this.OnAccountCustomer_PasswordChanged();
+					this._Services_Release = value;
+					this.SendPropertyChanged("Services_Release");
+					this.OnServices_ReleaseChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_IDNumber", DbType="VarChar(12)")]
-		public string AccountCustomer_IDNumber
+		[Column(Storage="_Services_Edit", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Services_Edit
 		{
 			get
 			{
-				return this._AccountCustomer_IDNumber;
+				return this._Services_Edit;
 			}
 			set
 			{
-				if ((this._AccountCustomer_IDNumber != value))
+				if ((this._Services_Edit != value))
 				{
-					this.OnAccountCustomer_IDNumberChanging(value);
+					this.OnServices_EditChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_IDNumber = value;
-					this.SendPropertyChanged("AccountCustomer_IDNumber");
-					this.OnAccountCustomer_IDNumberChanged();
+					this._Services_Edit = value;
+					this.SendPropertyChanged("Services_Edit");
+					this.OnServices_EditChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_FullName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string AccountCustomer_FullName
+		[Column(Storage="_Services_Content", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Services_Content
 		{
 			get
 			{
-				return this._AccountCustomer_FullName;
+				return this._Services_Content;
 			}
 			set
 			{
-				if ((this._AccountCustomer_FullName != value))
+				if ((this._Services_Content != value))
 				{
-					this.OnAccountCustomer_FullNameChanging(value);
+					this.OnServices_ContentChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_FullName = value;
-					this.SendPropertyChanged("AccountCustomer_FullName");
-					this.OnAccountCustomer_FullNameChanged();
+					this._Services_Content = value;
+					this.SendPropertyChanged("Services_Content");
+					this.OnServices_ContentChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_Birthday", DbType="DateTime")]
-		public System.Nullable<System.DateTime> AccountCustomer_Birthday
+		[Column(Storage="_Services_Image", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Services_Image
 		{
 			get
 			{
-				return this._AccountCustomer_Birthday;
+				return this._Services_Image;
 			}
 			set
 			{
-				if ((this._AccountCustomer_Birthday != value))
+				if ((this._Services_Image != value))
 				{
-					this.OnAccountCustomer_BirthdayChanging(value);
+					this.OnServices_ImageChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_Birthday = value;
-					this.SendPropertyChanged("AccountCustomer_Birthday");
-					this.OnAccountCustomer_BirthdayChanged();
+					this._Services_Image = value;
+					this.SendPropertyChanged("Services_Image");
+					this.OnServices_ImageChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_Gender", DbType="Bit NOT NULL")]
-		public bool AccountCustomer_Gender
+		[Column(Storage="_Services_ReadCount", DbType="Int NOT NULL")]
+		public int Services_ReadCount
 		{
 			get
 			{
-				return this._AccountCustomer_Gender;
+				return this._Services_ReadCount;
 			}
 			set
 			{
-				if ((this._AccountCustomer_Gender != value))
+				if ((this._Services_ReadCount != value))
 				{
-					this.OnAccountCustomer_GenderChanging(value);
+					this.OnServices_ReadCountChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_Gender = value;
-					this.SendPropertyChanged("AccountCustomer_Gender");
-					this.OnAccountCustomer_GenderChanged();
+					this._Services_ReadCount = value;
+					this.SendPropertyChanged("Services_ReadCount");
+					this.OnServices_ReadCountChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_Address", DbType="NVarChar(150)")]
-		public string AccountCustomer_Address
+		[Column(Storage="_Services_Active", DbType="Bit NOT NULL")]
+		public bool Services_Active
 		{
 			get
 			{
-				return this._AccountCustomer_Address;
+				return this._Services_Active;
 			}
 			set
 			{
-				if ((this._AccountCustomer_Address != value))
+				if ((this._Services_Active != value))
 				{
-					this.OnAccountCustomer_AddressChanging(value);
+					this.OnServices_ActiveChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_Address = value;
-					this.SendPropertyChanged("AccountCustomer_Address");
-					this.OnAccountCustomer_AddressChanged();
+					this._Services_Active = value;
+					this.SendPropertyChanged("Services_Active");
+					this.OnServices_ActiveChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_PhoneNumber", DbType="NVarChar(100)")]
-		public string AccountCustomer_PhoneNumber
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.tbl_DrawFaceBus")]
+	public partial class tbl_DrawFaceBus : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private short _ID;
+		
+		private string _Draw_FaceBus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(short value);
+    partial void OnIDChanged();
+    partial void OnDraw_FaceBusChanging(string value);
+    partial void OnDraw_FaceBusChanged();
+    #endregion
+		
+		public tbl_DrawFaceBus()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_ID", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short ID
 		{
 			get
 			{
-				return this._AccountCustomer_PhoneNumber;
+				return this._ID;
 			}
 			set
 			{
-				if ((this._AccountCustomer_PhoneNumber != value))
+				if ((this._ID != value))
 				{
-					this.OnAccountCustomer_PhoneNumberChanging(value);
+					this.OnIDChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_PhoneNumber = value;
-					this.SendPropertyChanged("AccountCustomer_PhoneNumber");
-					this.OnAccountCustomer_PhoneNumberChanged();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_AccountCustomer_Job", DbType="NVarChar(100)")]
-		public string AccountCustomer_Job
+		[Column(Storage="_Draw_FaceBus", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Draw_FaceBus
 		{
 			get
 			{
-				return this._AccountCustomer_Job;
+				return this._Draw_FaceBus;
 			}
 			set
 			{
-				if ((this._AccountCustomer_Job != value))
+				if ((this._Draw_FaceBus != value))
 				{
-					this.OnAccountCustomer_JobChanging(value);
+					this.OnDraw_FaceBusChanging(value);
 					this.SendPropertyChanging();
-					this._AccountCustomer_Job = value;
-					this.SendPropertyChanged("AccountCustomer_Job");
-					this.OnAccountCustomer_JobChanged();
+					this._Draw_FaceBus = value;
+					this.SendPropertyChanged("Draw_FaceBus");
+					this.OnDraw_FaceBusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.tbl_BusTicket")]
+	public partial class tbl_BusTicket : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Ticket_ID;
+		
+		private int _Ticket_CityStartID;
+		
+		private int _Ticket_CityEndID;
+		
+		private int _Ticket_BusTypeID;
+		
+		private short _Ticket_BusStartTime;
+		
+		private System.Guid _Ticket_CustomerID;
+		
+		private string _Ticket_CusName;
+		
+		private short _Ticket_CusAge;
+		
+		private decimal _Ticket_Cost;
+		
+		private short _Ticket_SeatNumber;
+		
+		private System.Nullable<System.DateTime> _Ticket_DepartureDate;
+		
+		private bool _Ticket_Status;
+		
+		private EntityRef<tbl_AccountCustomer> _tbl_AccountCustomer;
+		
+		private EntityRef<tbl_BusRoute> _tbl_BusRoute;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTicket_IDChanging(System.Guid value);
+    partial void OnTicket_IDChanged();
+    partial void OnTicket_CityStartIDChanging(int value);
+    partial void OnTicket_CityStartIDChanged();
+    partial void OnTicket_CityEndIDChanging(int value);
+    partial void OnTicket_CityEndIDChanged();
+    partial void OnTicket_BusTypeIDChanging(int value);
+    partial void OnTicket_BusTypeIDChanged();
+    partial void OnTicket_BusStartTimeChanging(short value);
+    partial void OnTicket_BusStartTimeChanged();
+    partial void OnTicket_CustomerIDChanging(System.Guid value);
+    partial void OnTicket_CustomerIDChanged();
+    partial void OnTicket_CusNameChanging(string value);
+    partial void OnTicket_CusNameChanged();
+    partial void OnTicket_CusAgeChanging(short value);
+    partial void OnTicket_CusAgeChanged();
+    partial void OnTicket_CostChanging(decimal value);
+    partial void OnTicket_CostChanged();
+    partial void OnTicket_SeatNumberChanging(short value);
+    partial void OnTicket_SeatNumberChanged();
+    partial void OnTicket_DepartureDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnTicket_DepartureDateChanged();
+    partial void OnTicket_StatusChanging(bool value);
+    partial void OnTicket_StatusChanged();
+    #endregion
+		
+		public tbl_BusTicket()
+		{
+			this._tbl_AccountCustomer = default(EntityRef<tbl_AccountCustomer>);
+			this._tbl_BusRoute = default(EntityRef<tbl_BusRoute>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_Ticket_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Ticket_ID
+		{
+			get
+			{
+				return this._Ticket_ID;
+			}
+			set
+			{
+				if ((this._Ticket_ID != value))
+				{
+					this.OnTicket_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_ID = value;
+					this.SendPropertyChanged("Ticket_ID");
+					this.OnTicket_IDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_CityStartID", DbType="Int NOT NULL")]
+		public int Ticket_CityStartID
+		{
+			get
+			{
+				return this._Ticket_CityStartID;
+			}
+			set
+			{
+				if ((this._Ticket_CityStartID != value))
+				{
+					if (this._tbl_BusRoute.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTicket_CityStartIDChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_CityStartID = value;
+					this.SendPropertyChanged("Ticket_CityStartID");
+					this.OnTicket_CityStartIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_CityEndID", DbType="Int NOT NULL")]
+		public int Ticket_CityEndID
+		{
+			get
+			{
+				return this._Ticket_CityEndID;
+			}
+			set
+			{
+				if ((this._Ticket_CityEndID != value))
+				{
+					if (this._tbl_BusRoute.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTicket_CityEndIDChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_CityEndID = value;
+					this.SendPropertyChanged("Ticket_CityEndID");
+					this.OnTicket_CityEndIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_BusTypeID", DbType="Int NOT NULL")]
+		public int Ticket_BusTypeID
+		{
+			get
+			{
+				return this._Ticket_BusTypeID;
+			}
+			set
+			{
+				if ((this._Ticket_BusTypeID != value))
+				{
+					if (this._tbl_BusRoute.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTicket_BusTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_BusTypeID = value;
+					this.SendPropertyChanged("Ticket_BusTypeID");
+					this.OnTicket_BusTypeIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_BusStartTime", DbType="SmallInt NOT NULL")]
+		public short Ticket_BusStartTime
+		{
+			get
+			{
+				return this._Ticket_BusStartTime;
+			}
+			set
+			{
+				if ((this._Ticket_BusStartTime != value))
+				{
+					if (this._tbl_BusRoute.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTicket_BusStartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_BusStartTime = value;
+					this.SendPropertyChanged("Ticket_BusStartTime");
+					this.OnTicket_BusStartTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_CustomerID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid Ticket_CustomerID
+		{
+			get
+			{
+				return this._Ticket_CustomerID;
+			}
+			set
+			{
+				if ((this._Ticket_CustomerID != value))
+				{
+					if (this._tbl_AccountCustomer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTicket_CustomerIDChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_CustomerID = value;
+					this.SendPropertyChanged("Ticket_CustomerID");
+					this.OnTicket_CustomerIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_CusName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Ticket_CusName
+		{
+			get
+			{
+				return this._Ticket_CusName;
+			}
+			set
+			{
+				if ((this._Ticket_CusName != value))
+				{
+					this.OnTicket_CusNameChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_CusName = value;
+					this.SendPropertyChanged("Ticket_CusName");
+					this.OnTicket_CusNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_CusAge", DbType="SmallInt NOT NULL")]
+		public short Ticket_CusAge
+		{
+			get
+			{
+				return this._Ticket_CusAge;
+			}
+			set
+			{
+				if ((this._Ticket_CusAge != value))
+				{
+					this.OnTicket_CusAgeChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_CusAge = value;
+					this.SendPropertyChanged("Ticket_CusAge");
+					this.OnTicket_CusAgeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_Cost", DbType="Money NOT NULL")]
+		public decimal Ticket_Cost
+		{
+			get
+			{
+				return this._Ticket_Cost;
+			}
+			set
+			{
+				if ((this._Ticket_Cost != value))
+				{
+					this.OnTicket_CostChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_Cost = value;
+					this.SendPropertyChanged("Ticket_Cost");
+					this.OnTicket_CostChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_SeatNumber", DbType="SmallInt NOT NULL")]
+		public short Ticket_SeatNumber
+		{
+			get
+			{
+				return this._Ticket_SeatNumber;
+			}
+			set
+			{
+				if ((this._Ticket_SeatNumber != value))
+				{
+					this.OnTicket_SeatNumberChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_SeatNumber = value;
+					this.SendPropertyChanged("Ticket_SeatNumber");
+					this.OnTicket_SeatNumberChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_DepartureDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ticket_DepartureDate
+		{
+			get
+			{
+				return this._Ticket_DepartureDate;
+			}
+			set
+			{
+				if ((this._Ticket_DepartureDate != value))
+				{
+					this.OnTicket_DepartureDateChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_DepartureDate = value;
+					this.SendPropertyChanged("Ticket_DepartureDate");
+					this.OnTicket_DepartureDateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ticket_Status", DbType="Bit NOT NULL")]
+		public bool Ticket_Status
+		{
+			get
+			{
+				return this._Ticket_Status;
+			}
+			set
+			{
+				if ((this._Ticket_Status != value))
+				{
+					this.OnTicket_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._Ticket_Status = value;
+					this.SendPropertyChanged("Ticket_Status");
+					this.OnTicket_StatusChanged();
+				}
+			}
+		}
+		
+		[Association(Name="tbl_AccountCustomer_tbl_BusTicket", Storage="_tbl_AccountCustomer", ThisKey="Ticket_CustomerID", OtherKey="AccountCustomerID", IsForeignKey=true)]
+		public tbl_AccountCustomer tbl_AccountCustomer
+		{
+			get
+			{
+				return this._tbl_AccountCustomer.Entity;
+			}
+			set
+			{
+				tbl_AccountCustomer previousValue = this._tbl_AccountCustomer.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_AccountCustomer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_AccountCustomer.Entity = null;
+						previousValue.tbl_BusTickets.Remove(this);
+					}
+					this._tbl_AccountCustomer.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_BusTickets.Add(this);
+						this._Ticket_CustomerID = value.AccountCustomerID;
+					}
+					else
+					{
+						this._Ticket_CustomerID = default(System.Guid);
+					}
+					this.SendPropertyChanged("tbl_AccountCustomer");
+				}
+			}
+		}
+		
+		[Association(Name="tbl_BusRoute_tbl_BusTicket", Storage="_tbl_BusRoute", ThisKey="Ticket_CityStartID,Ticket_CityEndID,Ticket_BusTypeID,Ticket_BusStartTime", OtherKey="BusRoute_CityStartID,BusRoute_CityEndID,BusRoute_BusTypeID,BusRoute_StartTime", IsForeignKey=true)]
+		public tbl_BusRoute tbl_BusRoute
+		{
+			get
+			{
+				return this._tbl_BusRoute.Entity;
+			}
+			set
+			{
+				tbl_BusRoute previousValue = this._tbl_BusRoute.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_BusRoute.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_BusRoute.Entity = null;
+						previousValue.tbl_BusTickets.Remove(this);
+					}
+					this._tbl_BusRoute.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_BusTickets.Add(this);
+						this._Ticket_CityStartID = value.BusRoute_CityStartID;
+						this._Ticket_CityEndID = value.BusRoute_CityEndID;
+						this._Ticket_BusTypeID = value.BusRoute_BusTypeID;
+						this._Ticket_BusStartTime = value.BusRoute_StartTime;
+					}
+					else
+					{
+						this._Ticket_CityStartID = default(int);
+						this._Ticket_CityEndID = default(int);
+						this._Ticket_BusTypeID = default(int);
+						this._Ticket_BusStartTime = default(short);
+					}
+					this.SendPropertyChanged("tbl_BusRoute");
 				}
 			}
 		}
@@ -2008,6 +3602,434 @@ namespace onlinebus.Models
 				if ((this._Admin_Active != value))
 				{
 					this._Admin_Active = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetRouteMatchResult
+	{
+		
+		private string _BusType_Name;
+		
+		private short _BusType_Seat;
+		
+		private int _BusRoute_CityStartID;
+		
+		private int _BusRoute_CityEndID;
+		
+		private int _BusRoute_BusTypeID;
+		
+		private short _BusRoute_StartTime;
+		
+		private short _BusRoute_EstimateTime;
+		
+		private int _BusRoute_Length;
+		
+		private decimal _BusRoute_Cost;
+		
+		private string _DayName;
+		
+		public sp_GetRouteMatchResult()
+		{
+		}
+		
+		[Column(Storage="_BusType_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusType_Name
+		{
+			get
+			{
+				return this._BusType_Name;
+			}
+			set
+			{
+				if ((this._BusType_Name != value))
+				{
+					this._BusType_Name = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusType_Seat", DbType="SmallInt NOT NULL")]
+		public short BusType_Seat
+		{
+			get
+			{
+				return this._BusType_Seat;
+			}
+			set
+			{
+				if ((this._BusType_Seat != value))
+				{
+					this._BusType_Seat = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_CityStartID", DbType="Int NOT NULL")]
+		public int BusRoute_CityStartID
+		{
+			get
+			{
+				return this._BusRoute_CityStartID;
+			}
+			set
+			{
+				if ((this._BusRoute_CityStartID != value))
+				{
+					this._BusRoute_CityStartID = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_CityEndID", DbType="Int NOT NULL")]
+		public int BusRoute_CityEndID
+		{
+			get
+			{
+				return this._BusRoute_CityEndID;
+			}
+			set
+			{
+				if ((this._BusRoute_CityEndID != value))
+				{
+					this._BusRoute_CityEndID = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_BusTypeID", DbType="Int NOT NULL")]
+		public int BusRoute_BusTypeID
+		{
+			get
+			{
+				return this._BusRoute_BusTypeID;
+			}
+			set
+			{
+				if ((this._BusRoute_BusTypeID != value))
+				{
+					this._BusRoute_BusTypeID = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_StartTime", DbType="SmallInt NOT NULL")]
+		public short BusRoute_StartTime
+		{
+			get
+			{
+				return this._BusRoute_StartTime;
+			}
+			set
+			{
+				if ((this._BusRoute_StartTime != value))
+				{
+					this._BusRoute_StartTime = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_EstimateTime", DbType="SmallInt NOT NULL")]
+		public short BusRoute_EstimateTime
+		{
+			get
+			{
+				return this._BusRoute_EstimateTime;
+			}
+			set
+			{
+				if ((this._BusRoute_EstimateTime != value))
+				{
+					this._BusRoute_EstimateTime = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_Length", DbType="Int NOT NULL")]
+		public int BusRoute_Length
+		{
+			get
+			{
+				return this._BusRoute_Length;
+			}
+			set
+			{
+				if ((this._BusRoute_Length != value))
+				{
+					this._BusRoute_Length = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_Cost", DbType="Money NOT NULL")]
+		public decimal BusRoute_Cost
+		{
+			get
+			{
+				return this._BusRoute_Cost;
+			}
+			set
+			{
+				if ((this._BusRoute_Cost != value))
+				{
+					this._BusRoute_Cost = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_DayName", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string DayName
+		{
+			get
+			{
+				return this._DayName;
+			}
+			set
+			{
+				if ((this._DayName != value))
+				{
+					this._DayName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetRouteMatchDetailResult
+	{
+		
+		private string _BusType_Name;
+		
+		private short _BusType_Seat;
+		
+		private short _BusRoute_StartTime;
+		
+		private short _BusRoute_EstimateTime;
+		
+		private int _BusRoute_Length;
+		
+		private decimal _BusRoute_Cost;
+		
+		private int _BusRoute_CityStartID;
+		
+		private int _BusRoute_CityEndID;
+		
+		private int _BusRoute_BusTypeID;
+		
+		private short _BusRoute_StartTime1;
+		
+		public sp_GetRouteMatchDetailResult()
+		{
+		}
+		
+		[Column(Storage="_BusType_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusType_Name
+		{
+			get
+			{
+				return this._BusType_Name;
+			}
+			set
+			{
+				if ((this._BusType_Name != value))
+				{
+					this._BusType_Name = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusType_Seat", DbType="SmallInt NOT NULL")]
+		public short BusType_Seat
+		{
+			get
+			{
+				return this._BusType_Seat;
+			}
+			set
+			{
+				if ((this._BusType_Seat != value))
+				{
+					this._BusType_Seat = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_StartTime", DbType="SmallInt NOT NULL")]
+		public short BusRoute_StartTime
+		{
+			get
+			{
+				return this._BusRoute_StartTime;
+			}
+			set
+			{
+				if ((this._BusRoute_StartTime != value))
+				{
+					this._BusRoute_StartTime = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_EstimateTime", DbType="SmallInt NOT NULL")]
+		public short BusRoute_EstimateTime
+		{
+			get
+			{
+				return this._BusRoute_EstimateTime;
+			}
+			set
+			{
+				if ((this._BusRoute_EstimateTime != value))
+				{
+					this._BusRoute_EstimateTime = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_Length", DbType="Int NOT NULL")]
+		public int BusRoute_Length
+		{
+			get
+			{
+				return this._BusRoute_Length;
+			}
+			set
+			{
+				if ((this._BusRoute_Length != value))
+				{
+					this._BusRoute_Length = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_Cost", DbType="Money NOT NULL")]
+		public decimal BusRoute_Cost
+		{
+			get
+			{
+				return this._BusRoute_Cost;
+			}
+			set
+			{
+				if ((this._BusRoute_Cost != value))
+				{
+					this._BusRoute_Cost = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_CityStartID", DbType="Int NOT NULL")]
+		public int BusRoute_CityStartID
+		{
+			get
+			{
+				return this._BusRoute_CityStartID;
+			}
+			set
+			{
+				if ((this._BusRoute_CityStartID != value))
+				{
+					this._BusRoute_CityStartID = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_CityEndID", DbType="Int NOT NULL")]
+		public int BusRoute_CityEndID
+		{
+			get
+			{
+				return this._BusRoute_CityEndID;
+			}
+			set
+			{
+				if ((this._BusRoute_CityEndID != value))
+				{
+					this._BusRoute_CityEndID = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_BusTypeID", DbType="Int NOT NULL")]
+		public int BusRoute_BusTypeID
+		{
+			get
+			{
+				return this._BusRoute_BusTypeID;
+			}
+			set
+			{
+				if ((this._BusRoute_BusTypeID != value))
+				{
+					this._BusRoute_BusTypeID = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_BusRoute_StartTime1", DbType="SmallInt NOT NULL")]
+		public short BusRoute_StartTime1
+		{
+			get
+			{
+				return this._BusRoute_StartTime1;
+			}
+			set
+			{
+				if ((this._BusRoute_StartTime1 != value))
+				{
+					this._BusRoute_StartTime1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_CalculateDiscountResult
+	{
+		
+		private System.Nullable<decimal> _Result;
+		
+		public sp_CalculateDiscountResult()
+		{
+		}
+		
+		[Column(Storage="_Result", DbType="Money")]
+		public System.Nullable<decimal> Result
+		{
+			get
+			{
+				return this._Result;
+			}
+			set
+			{
+				if ((this._Result != value))
+				{
+					this._Result = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetSelectedSeatResult
+	{
+		
+		private short _Seat;
+		
+		public sp_GetSelectedSeatResult()
+		{
+		}
+		
+		[Column(Storage="_Seat", DbType="SmallInt NOT NULL")]
+		public short Seat
+		{
+			get
+			{
+				return this._Seat;
+			}
+			set
+			{
+				if ((this._Seat != value))
+				{
+					this._Seat = value;
 				}
 			}
 		}

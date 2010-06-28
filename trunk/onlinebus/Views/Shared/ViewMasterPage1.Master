@@ -63,7 +63,7 @@
         }
         if (Session["Username"] != null)
         {
-            Label1.Text = "<h3>Welcome <span class='error'>" + Session["Username"].ToString() + "</span> | <a href='?userlogout=true'>Logout</a> |</h3>";
+            Label1.Text = "<strong>Welcome <span class='error'>" + Session["Username"].ToString() + "</span> | <a href='/Home?userlogout=true'>Logout</a> |</strong>";
         }
     }
 </script>
@@ -73,6 +73,9 @@
         <div id="header">
             <p class="topText">
                 SRC <span>T</span>ravel <span>A</span>gencies</p>
+            <div style="width:300px;height:20px;float:right;color:White;margin:5px 5px auto auto;text-align:right">
+                  <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            </div>    
             <div id="smallTxt" style="width: 50%; height: 20px; margin: 95px 10px auto auto;
                 float: right; text-align: right">
                 Help Line : +84-169-295-2191,(6:30AM - 10:30 PM, Mon - Sat).</div>
@@ -83,12 +86,11 @@
                 <li><a href="/Home/Index">Home</a></li>
                 <li><a href="#">Agent Registration</a></li>
                 <li><a href="#">Feedback</a></li>
-                <li><a href="#">Cancellation</a></li>
+                <li><a href="#">My Account</a></li>
                 <li><a href="#">My booking</a></li>
                 <li><a href="#">Destinations</a></li>
             </ul>
-        </div>
-        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        </div>       
     </div>
     <!-- Region CONTENT CENTER  -->
     <div id="body">
@@ -104,7 +106,7 @@
     </div>
     <!-- END Region CONTENT CENTER  -->
     <!-- Region BOTTOM -->
-    <div id="bodyBottom">
+    <div id="bodyBottom" style="z-index:-10">
         <div id="news">
             <a href="/Home/GetAllNewsPage/">
                 <h2>
@@ -162,11 +164,11 @@
                 <div class="button">
                     <input type="submit" id="Login" name="Login" value="Go" />
                 </div>
-                <a href="#">A registered member?</a>
+                <a href="/Home/RegisterMember">A registered member?</a>
                 <br class="spacer" />
                 </form>
             </div>
-            <ul id="portfolio">
+            <ul id="portfolio" style="z-index:0">
                 <li>
                     <img src="../../Content/Pictures/buses_1.png" width="215" height="215" /></li>
                 <li>

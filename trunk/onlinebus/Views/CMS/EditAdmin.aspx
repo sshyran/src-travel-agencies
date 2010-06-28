@@ -84,10 +84,10 @@
                 &nbsp;Password confirm:&nbsp; (<span class="error">*</span>)
             </td>
             <td>
-                <%= Html.Password("txtPasswordConfirm", "", new { @class = "TextboxStandard", MaxLength = "20", OnBlur = "hehe()", Value = admin[0].Admin_Password })%>
+                <%= Html.Password("txtPasswordConfirm", "", new { @class = "TextboxStandard", MaxLength = "20", OnBlur = "Compare()", Value = admin[0].Admin_Password })%>
 
                 <script type="text/javascript">
-                    function hehe() {
+                    function Compare() {
                         if ($("#Password").val() != $("#txtPasswordConfirm").val()) {
                             alert("Password not compare Password confirm, please recheck!");
                         }
@@ -169,6 +169,7 @@
     </table>
     <!-- Viet Script Jquery de dien noi dung vao Description -->
     <% Response.Write("<script type='text/javascript'>"); %> 
+       <% Response.Write("$('#Role' option['Unknown']).attr('selected','selected')");%>
        <% Response.Write("$('#Description').attr('innerHTML','" + admin[0].Admin_Comment + "')");%>
     <% Response.Write("</script>"); %>
     
